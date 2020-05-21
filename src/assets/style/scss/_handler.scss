@@ -1,0 +1,86 @@
+@import "./_themes.scss";
+@import "./_font.scss";
+@import "./_layout.scss";
+
+//遍历主题map
+@mixin themeify {
+  @each $theme-name, $theme-map in $themes {
+    //!global 把局部变量强升为全局变量
+    $theme-map: $theme-map !global;
+    //判断html的data-theme的属性值  #{}是sass的插值表达式
+    //& sass嵌套里的父容器标识   @content是混合器插槽，像vue的slot
+    [data-theme="#{$theme-name}"] & { @content; }
+  }
+}
+
+//声明一个根据Key获取颜色的function
+@function get-themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+//获取背景颜色
+@mixin _background($color) {
+  @include themeify {
+    background-color: get-themed($color) !important;
+  }
+}
+
+//获取字体颜色
+@mixin _color($color) {
+  @include themeify {
+    color: get-themed($color) !important;
+  }
+}
+
+//获取边框颜色
+@mixin _border_color($color) {
+  @include themeify {
+    border-color: get-themed($color) !important;
+  }
+}
+
+//遍历字体map
+@mixin fontify {
+  @each $font-name, $font-map in $font {
+    //!global 把局部变量强升为全局变量
+    $font-map: $font-map !global;
+    //判断html的data-theme的属性值  #{}是sass的插值表达式
+    //& sass嵌套里的父容器标识   @content是混合器插槽，像vue的slot
+    [data-font="#{$font-name}"] & { @content; }
+  }
+}
+
+//声明一个根据Key获取字体的function
+@function get-font($key) {
+  @return map-get($font-map, $key);
+}
+
+//获取字体大小
+@mixin _font-size($font) {
+  @include fontify {
+    font-size: get-font($font) !important;
+  }
+}
+
+//遍历布局map
+@mixin layoutify {
+  @each $layout-name, $layout-map in $layout {
+    //!global 把局部变量强升为全局变量
+    $layout-map: $layout-map !global;
+    //判断html的data-theme的属性值  #{}是sass的插值表达式
+    //& sass嵌套里的父容器标识   @content是混合器插槽，像vue的slot
+    [data-layout="#{$layout-name}"] & { @content; }
+  }
+}
+
+//声明一个根据Key获取字体的function
+@function get-layout($key) {
+  @return map-get($layout-map, $key);
+}
+
+//获取布局排版
+@mixin _layout {
+  @include layoutify {
+    grid-template-areas: get-layout('_grid-template-areas');
+  }
+}

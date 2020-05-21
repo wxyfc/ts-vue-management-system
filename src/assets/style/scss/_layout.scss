@@ -1,0 +1,8 @@
+$layout: (
+        _header:(
+                _grid-template-areas: "head head" "aside  section" "aside  section"
+        ),
+        _aside:(
+                _grid-template-areas: "aside head" "aside  section" "aside  section"
+        )
+)
