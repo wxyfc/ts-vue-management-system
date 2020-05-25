@@ -7,13 +7,19 @@ interface STATEIFY {
   userInfo: object;
   otherInfo: object;
   briefInfo: object;
+  systemInfo: object;
 }
 
 export default new Vuex.Store({
   state: {
     userInfo: {}, // 用户信息
     otherInfo: {}, // 其他信息
-    briefInfo: {}
+    briefInfo: {}, // 一次性信息 不会保存在本地 刷新就会消失
+    systemInfo: {
+      initPorject: false, // 是否初始化过项目
+      elementNavMenu: 'vertical', // element 菜单栏的显示方式垂直或者水平  vertical / horizontal 屏幕小于996px会被改为水平
+      screenSize: 'large', // 当前屏幕的大小 大屏或者小屏 large / small 屏幕小于996px会被改为小屏
+    } // 系统信息
   },
   getters: {
     getUserInfo (state: STATEIFY) {
@@ -25,7 +31,12 @@ export default new Vuex.Store({
       return state.otherInfo
     },
     getBriefInfo (state: STATEIFY) {
+      // 获取一次性信息
       return state.briefInfo
+    },
+    getSystemInfo (state: STATEIFY) {
+      // 获取系统信息
+      return state.systemInfo
     }
   },
   mutations: {
@@ -68,6 +79,11 @@ export default new Vuex.Store({
     },
     deleteBriefInfo (state: STATEIFY, value) { // 删除一次性信息
       Vue.delete(state.briefInfo, value.key)
+    },
+    setSystemInfo (state: STATEIFY, value) { // 设置系统信息
+      for (const key in value) {
+        Vue.set(state.systemInfo, key, value[key])
+      }
     },
     clearVuex (state: STATEIFY) { // 清空vuex所有信息
       state.userInfo = {}

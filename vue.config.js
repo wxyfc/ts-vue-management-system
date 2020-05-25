@@ -33,11 +33,11 @@ module.exports = {
   },
   configureWebpack: config => {
     config.externals = {
-      'vue': 'Vue',
-      'vue-i18n': 'VueI18n',
-      'vue-router': 'VueRouter',
-      'vuex': 'Vuex',
-      'element-ui': 'ELEMENT',
+      // 'vue': 'Vue',
+      // 'vue-i18n': 'VueI18n',
+      // 'vue-router': 'VueRouter',
+      // 'vuex': 'Vuex',
+      // 'element-ui': 'ELEMENT',
       // 'axios' : 'axios' ,
       // 'echarts' : 'echarts' ,
       // 'file-saver' : 'saveAs' ,
