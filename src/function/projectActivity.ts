@@ -1,5 +1,6 @@
 /* getBrowserLanguage getLocal setLocal removeLocal clearLocal */
 import { setLocal, getLocal } from './browserActivity'
+import store from '@store'
 
 export function setTheme (theme = '_main') {
   // 设置主题方法,只需传入想要设置的主题即可(_main,_high,_dull)
@@ -19,12 +20,19 @@ export function setLayout (layout = '_header') {
   setLocal('system-layout', layout)
 }
 
+export function handlerWindowChange () {
+  let screenSize = 'large'
+  let elementNavMenu = 'vertical'
+  if (window.innerWidth < 996) {
+    screenSize = 'small'
+    elementNavMenu = 'horizontal'
+  }
+  store.dispatch('upVuex', { mutations: 'setSystemInfo', value: { screenSize, elementNavMenu } })
+}
+
 export function monitorWindowChange () {
-  window.addEventListener('resize', () => {
-    if (window.innerWidth < 996) {
-      console.log(window.innerHeight)
-    }
-  })
+  handlerWindowChange()
+  window.addEventListener('resize', handlerWindowChange)
   window.addEventListener('beforeunload', (e) => {
     (window.event || e).returnValue = ('')
   }, true)

@@ -38,7 +38,8 @@ export default class MeetMain extends Vue {
 </script>
 <style scoped lang="scss">
   $head-height: 50px;
-  $aside-w-h: 200px;
+  $aside-width: 200px;
+  $aside-height: 70px;
   $nav-height: 30px;
   @media only screen and (min-width: 996px) {
     .meet-main {
@@ -46,7 +47,7 @@ export default class MeetMain extends Vue {
       height: 100%;
       display: grid;
       grid-template-rows: $head-height calc(100% - #{$head-height});
-      grid-template-columns: $aside-w-h calc(100% - #{$aside-w-h});
+      grid-template-columns: $aside-width calc(100% - #{$aside-width});
       @include _layout;
       .head, .aside, .nav {
         word-wrap: break-word;
@@ -94,11 +95,11 @@ export default class MeetMain extends Vue {
       }
       .aside {
         width: 100%;
-        height: $aside-w-h;
+        height: $aside-height;
       }
       .section {
         width: 100%;
-        height: calc(100% - #{ $head-height + $aside-w-h});
+        height: calc(100% - #{ $head-height + $aside-height});
         .nav {
           display: none;
         }

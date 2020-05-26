@@ -18,7 +18,7 @@ export default new Vuex.Store({
     systemInfo: {
       initPorject: false, // 是否初始化过项目
       elementNavMenu: 'vertical', // element 菜单栏的显示方式垂直或者水平  vertical / horizontal 屏幕小于996px会被改为水平
-      screenSize: 'large', // 当前屏幕的大小 大屏或者小屏 large / small 屏幕小于996px会被改为小屏
+      screenSize: 'large' // 当前屏幕的大小 大屏或者小屏 large / small 屏幕小于996px会被改为小屏
     } // 系统信息
   },
   getters: {
