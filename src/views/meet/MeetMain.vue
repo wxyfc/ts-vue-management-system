@@ -91,19 +91,20 @@ export default class MeetMain extends Vue {
       height: 100%;
       .head {
         width: 100%;
-        height: $head-height;
+        min-height: $head-height;
       }
       .aside {
         width: 100%;
-        height: $aside-height;
+        min-height: $aside-height;
       }
       .section {
         width: 100%;
-        height: calc(100% - #{ $head-height + $aside-height});
+        min-height: calc(100% - #{ $head-height + $aside-height});
         .nav {
           display: none;
         }
         .main {
+          word-break: break-all;
           width: 100%;
           height: 100%;
         }

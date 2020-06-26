@@ -7,9 +7,7 @@
 <script lang="ts">
 import { Component, Vue, Provide } from 'vue-property-decorator'
 
-interface RELOAD {
-  (): void;
-}
+type RELOAD = () => void;
 
 @Component
 export default class App extends Vue {
@@ -19,7 +17,6 @@ export default class App extends Vue {
 
   reloadFun () {
     this.isReloadAlive = false
-    console.log(123)
     this.$nextTick(() => {
       this.isReloadAlive = true
     })

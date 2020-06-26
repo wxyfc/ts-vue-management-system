@@ -1,7 +1,7 @@
 /* eslint-disable */
 // 操作浏览器的事件
-const projectName = 'ts-vue-management_'
-const projectVersion = '1.0.0_'
+const projectName = process.env.VUE_APP_NAME
+const projectVersion = process.env.VUE_APP_VERSION
 
 interface LOCALDATA {
   [key: string]: any;
@@ -15,7 +15,7 @@ export function getBrowserLanguage () {
 export function getLocal (key: string, value: any) {
   // 获取localStorage的value
   const ls = window.localStorage
-  let data = JSON.parse(ls.getItem(projectName + projectVersion) || '{}')
+  const data = JSON.parse(ls.getItem(projectName + projectVersion) || '{}')
   if (key === (projectName + projectVersion)) {
     return data
   } else if (projectName + projectVersion + key in data) {

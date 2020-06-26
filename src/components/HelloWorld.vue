@@ -27,13 +27,11 @@ interface OPTIONS {
   label: string;
 }
 
-interface RELOAD {
-  (): void;
-}
+type RELOAD = () => void;
 
 @Component
 export default class HelloWorld extends Vue {
-  options: Array<OPTIONS> = [{
+  options: OPTIONS[] = [{
     value: '选项1',
     label: '黄金糕'
   }, {

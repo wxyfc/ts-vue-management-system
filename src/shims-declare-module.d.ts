@@ -5,4 +5,5 @@ declare module '@function/*';
 declare module '@system/*';
 declare module '@mixin/*';
 declare module '@store';
+declare module '@router';
 

@@ -1,17 +1,20 @@
 $themes: (
         _main:(
+                // 默认主要布局
                 _theme-color:#3fffda,
                 _vice-color:#3fffda,
                 _color:#42bcff,
                 _border-color:#000
         ),
         _high:(
+                // 高亮布局
                 _theme-color:#ff1a19,
                 _vice-color:#3fffda,
                 _color:#fcff1b,
                 _border-color:#fc18ff
         ),
         _dull:(
+                // 暗沉布局
                 _theme-color:#171577,
                 _vice-color:#3fffda,
                 _color:#105c18,
