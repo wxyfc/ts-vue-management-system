@@ -1,5 +1,6 @@
 /* eslint-disable */
 // @ts-nocheck
+// 工具函数
 
 // 检查数据类型
 export function inspectType (obj: any) {

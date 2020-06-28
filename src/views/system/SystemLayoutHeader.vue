@@ -3,6 +3,7 @@
 </template>
 
 <script lang="ts">
+/* eslint-disable */
 // @ts-nocheck
 
 import { Component, Mixins } from 'vue-property-decorator'
@@ -16,7 +17,7 @@ export default class SystemLayoutHeader extends Mixins(infoMixin) {
   }
 
   test () {
-    this.setSystemInfo({ test: 111111111 })
+    this.setUserInfo({ test: 111111111 })
   }
 }
 </script>

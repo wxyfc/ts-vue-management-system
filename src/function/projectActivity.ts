@@ -1,6 +1,9 @@
+/* eslint-disable */
+// @ts-nocheck
+// 操作项目的事件
 /* getBrowserLanguage getLocal setLocal removeLocal clearLocal */
 import { setLocal, getLocal } from './browserActivity'
-import { userInfo, otherInfo, briefInfo, systemInfo, setSystemInfo } from '@function/handlerVuex'
+import { userInfo, otherInfo, briefInfo, systemInfo, setSystemInfo, clearVuex } from '@function/handlerVuex'
 
 // import store from '@store'
 

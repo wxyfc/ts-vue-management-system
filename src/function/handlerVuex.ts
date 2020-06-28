@@ -1,4 +1,5 @@
 // @ts-nocheck
+// 处理vuex
 import store from '@store'
 
 // 获取用户信息
