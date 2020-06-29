@@ -69,7 +69,5 @@ export default class HelloWorld extends Vue {
 </script>
 <style scoped lang="scss">
   .hello {
-    @include _background("_theme-color");
-    @include _font-size("_title");
   }
 </style>

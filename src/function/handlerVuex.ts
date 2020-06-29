@@ -4,22 +4,22 @@ import store from '@store'
 
 // 获取用户信息
 export function userInfo () {
-  return store.getters.getUserInfo
+  return JSON.parse(JSON.stringify(store.getters.getUserInfo))
 }
 
 // 获取其他信息
 export function otherInfo () {
-  return store.getters.getOtherInfo
+  return JSON.parse(JSON.stringify(store.getters.getOtherInfo))
 }
 
 // 获取一次性信息
 export function briefInfo () {
-  return store.getters.getBriefInfo
+  return JSON.parse(JSON.stringify(store.getters.getBriefInfo))
 }
 
 // 获取系统信息
 export function systemInfo () {
-  return store.getters.getSystemInfo
+  return JSON.parse(JSON.stringify(store.getters.getSystemInfo))
 }
 
 // 设置用户的信息

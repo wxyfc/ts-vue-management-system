@@ -8,9 +8,123 @@
     </div>
     <div class="section">
       <div class="nav">
-        nav======nav========nav=========nav========nav==========nav=========nav==============nav==========nav======nav========nav=========nav========nav==========nav=========nav==============nav==========nav======nav========nav=========nav========nav==========nav=========nav==============nav==========nav======nav========nav=========nav========nav==========nav=========nav==============nav==========
+        <SystemLayoutNav></SystemLayoutNav>
       </div>
-      <div class="main" @click="setLayout('_aside','_small','_dull')">main===========main===========main===========main===========main===========main===========</div>
+      <div class="main" @click="setLayout('_aside','_small','_dull')">
+        <div class="handler-main-content">
+          <p>
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+          </p>
+          <p>
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+          </p>
+          <p>
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+          </p>
+          <p>
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+          </p>
+          <p>
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+          </p>
+          <p>
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+          </p>
+          <p>
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+          </p>
+          <p>
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+          </p>
+          <p>
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+          </p>
+          <p>
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+            main===========main===========main===========main===========main===========main===========
+          </p>
+          1111111111111111
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -22,7 +136,8 @@ import { setLayout, setFont, setTheme } from '@function/projectActivity'
 @Component({
   components: {
     SystemLayoutHeader: () => import('@system/SystemLayoutHeader'),
-    SystemLayoutAside: () => import('@system/SystemLayoutAside')
+    SystemLayoutAside: () => import('@system/SystemLayoutAside'),
+    SystemLayoutNav: () => import('@system/SystemLayoutNav')
   }
 })
 export default class MeetMain extends Vue {
@@ -37,10 +152,36 @@ export default class MeetMain extends Vue {
 }
 </script>
 <style scoped lang="scss">
-  $head-height: 50px;
+  $head-height: 60px;
   $aside-width: 200px;
   $aside-height: 70px;
-  $nav-height: 30px;
+  $nav-height: 50px;
+  $layout-padding: 8px;
+  @mixin _layout-padding {
+    box-sizing: border-box;
+    padding: $layout-padding 12px;
+    border-radius: 5px;
+  }
+
+  .head, .aside, .nav, .main {
+    word-break: break-all;
+    @include _font-size('_title');
+  }
+
+  .meet-main {
+    .section {
+      overflow: hidden;
+    }
+    /deep/ .handler-main-content {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      padding: 12px;
+      box-sizing: border-box;
+      @include _border-box-shadow;
+    }
+  }
+
   @media only screen and (min-width: 996px) {
     .meet-main {
       width: 100%;
@@ -49,11 +190,6 @@ export default class MeetMain extends Vue {
       grid-template-rows: $head-height calc(100% - #{$head-height});
       grid-template-columns: $aside-width calc(100% - #{$aside-width});
       @include _layout;
-      .head, .aside, .nav {
-        word-wrap: break-word;
-        word-break: normal;
-        @include _font-size("_title");
-      }
       .head {
         grid-area: head;
         @include _background("_vice-color");
@@ -66,10 +202,11 @@ export default class MeetMain extends Vue {
         grid-area: section;
         .nav {
           white-space: nowrap;
-          line-height: $nav-height;
+          line-height: $nav-height - $layout-padding * 2;
           width: 100%;
           height: $nav-height;
           overflow: hidden;
+          @include _layout-padding;
           &:hover {
             overflow-x: auto;
           }
@@ -80,6 +217,7 @@ export default class MeetMain extends Vue {
         .main {
           width: 100%;
           height: calc(100% - #{$nav-height});
+          @include _layout-padding;
         }
       }
     }
@@ -99,14 +237,14 @@ export default class MeetMain extends Vue {
       }
       .section {
         width: 100%;
-        min-height: calc(100% - #{ $head-height + $aside-height});
+        height: calc(100% - #{ $head-height + $aside-height});
         .nav {
           display: none;
         }
         .main {
-          word-break: break-all;
           width: 100%;
           height: 100%;
+          @include _layout-padding;
         }
       }
     }

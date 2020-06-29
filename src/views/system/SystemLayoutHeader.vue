@@ -25,6 +25,5 @@ export default class SystemLayoutHeader extends Mixins(infoMixin) {
   header {
     width: 100%;
     height: 100%;
-    word-break: break-all;
   }
 </style>

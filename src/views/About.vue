@@ -18,7 +18,7 @@ interface OPTIONS {
 type RELOAD = () => void;
 
 @Component
-export default class HelloWorld extends Vue {
+export default class About extends Vue {
   options: OPTIONS[] = [{
     value: '选项1',
     label: '黄金糕'
@@ -57,7 +57,5 @@ export default class HelloWorld extends Vue {
 </script>
 <style scoped lang="scss">
   .about {
-    @include _background("_theme-color");
-    @include _font-size("_title");
   }
 </style>

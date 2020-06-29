@@ -13,23 +13,26 @@ export default function () {
     if (systemInfo().initPorject) {
       next()
     } else {
-      const userInfo = getLocal('userInfo', {})
-      if (Object.keys(userInfo).length > 0) {
-        setUserInfo({ ...userInfo })
+      const _userInfo = getLocal('userInfo', {})
+      if (Object.keys(_userInfo).length > 0) {
+        setUserInfo({ ..._userInfo })
       }
-      const otherInfo = getLocal('otherInfo', {})
-      if (Object.keys(otherInfo).length > 0) {
-        setOtherInfo({ ...otherInfo })
+      const _otherInfo = getLocal('otherInfo', {})
+      if (Object.keys(_otherInfo).length > 0) {
+        setOtherInfo({ ..._otherInfo })
       }
-      const briefInfo = getLocal('briefInfo', {})
-      if (Object.keys(briefInfo).length > 0) {
-        setBriefInfo({ ...briefInfo })
+      const _briefInfo = getLocal('briefInfo', {})
+      if (Object.keys(_briefInfo).length > 0) {
+        setBriefInfo({ ..._briefInfo })
       }
-      const systemInfo = getLocal('systemInfo', {})
-      if (Object.keys(systemInfo).length > 0) {
-        setSystemInfo({ ...systemInfo, initPorject: true })
+      const _systemInfo = getLocal('systemInfo', {})
+      if (Object.keys(_systemInfo).length > 0) {
+        setSystemInfo({ ..._systemInfo, initPorject: false })
       }
       next()
     }
   })
+  router.afterEach((to, from) => {
+    setSystemInfo({ initPorject: true })
+  });
 }

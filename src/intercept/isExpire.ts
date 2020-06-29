@@ -6,11 +6,11 @@
 * */
 
 import router from '@router'
-import { userInfo } from '@function/handlerVuex'
+import { userInfo, systemInfo } from '@function/handlerVuex'
 
 export default function () {
   router.beforeEach((to, from, next) => {
-    console.log(userInfo())
+    console.log(JSON.stringify(systemInfo()))
     next()
   })
 }
