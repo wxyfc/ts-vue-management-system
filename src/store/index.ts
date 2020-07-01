@@ -21,6 +21,7 @@ export default new Vuex.Store({
     briefInfo: {}, // 一次性信息 不会保存在本地 刷新就会消失
     systemInfo: { // 系统信息
       initPorject: false, // 是否初始化过项目
+      asyncRouter: false, // 是否加载过异步路由
       elementNavMenu: 'vertical', // element 菜单栏的显示方式垂直或者水平  vertical / horizontal 屏幕小于996px会被改为水平
       systemScreenSize: 'large' // 当前屏幕的大小 大屏或者小屏 large / small 屏幕小于996px会被改为小屏
       // systemFontSize: '_small', // 当前系统字体大小

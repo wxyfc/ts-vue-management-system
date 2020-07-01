@@ -1,3 +1,15 @@
 [
-  { }
+  {
+    "path" : "/async" ,
+    "name" : "async" ,
+    "component" : "@system/MeetMain" ,
+    "redirect" : "/async/home" ,
+    "children" : [
+      {
+        "path" : "/async/home" ,
+        "name" : "/async/home" ,
+        "component" : "demo/Demo"
+      }
+    ]
+  }
 ]

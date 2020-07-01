@@ -1,14 +1,31 @@
 const path = require ( 'path' )
 const resolve = dir => path.join ( __dirname, dir )
-// const IS_PROD = [ 'production', 'prod' ].includes ( process.env.NODE_ENV )
+const IS_PROD = [ 'production' ].includes ( process.env.NODE_ENV )
 module.exports = {
   publicPath: './',
+  productionSourceMap: false,
   // 配置全局scss文件
   css: {
     loaderOptions: {
       sass: {
         prependData: `@import "./src/assets/style/scss/index.scss";`
       }
+    }
+  },
+  pages: {
+    index: {
+      // page 的入口
+      entry: 'src/main.ts',
+      // 模板来源
+      template: 'public/index.html',
+      // 在 dist/index.html 的输出
+      filename: 'index.html',
+      // 当使用 title 选项时，
+      // template 中的 title 标签需要是 <title><%= htmlWebpackPlugin.options.title %></title>
+      title: process.env.VUE_APP_TITLE,
+      // 在这个页面中包含的块，默认情况下会包含
+      // 提取出来的通用 chunk 和 vendor chunk。
+      chunks: [ 'chunk-vendors', 'chunk-common', 'index' ]
     }
   },
   chainWebpack: config => {//修复 HMR(热更新)失效
@@ -28,8 +45,8 @@ module.exports = {
       .set ( '@mixin', resolve ( 'src/mixin' ) )
       .set ( '@router', resolve ( 'src/router' ) )
       .set ( '@store', resolve ( 'src/store' ) )
-      .set ( '@meet', resolve ( 'src/views/meet' ) )
       .set ( '@system', resolve ( 'src/views/system' ) )
+      .set ( '@view', resolve ( 'src/views/view' ) )
   },
   configureWebpack: config => {
     config.externals = {
@@ -54,7 +71,7 @@ module.exports = {
       // "vue-ueditor-wrap" : "VueUeditorWrap" ,
     }
     // 去除代码中的console
-    // config.optimization.minimizer[ 0 ].options.terserOptions.compress.drop_console = true
+    config.optimization.minimizer[ 0 ].options.terserOptions.compress.drop_console = IS_PROD
     // 保持类名不被压缩
     config.optimization.minimizer[ 0 ].options.terserOptions.keep_fnames = true
   },

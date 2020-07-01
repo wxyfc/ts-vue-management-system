@@ -27,12 +27,14 @@ export default function () {
       }
       const _systemInfo = getLocal('systemInfo', {})
       if (Object.keys(_systemInfo).length > 0) {
-        setSystemInfo({ ..._systemInfo, initPorject: false })
+        setSystemInfo({ ..._systemInfo })
       }
+      console.log('重置标识')
+      setSystemInfo({ initPorject: false, asyncRouter: false })
       next()
     }
   })
-  router.afterEach((to, from) => {
-    setSystemInfo({ initPorject: true })
-  });
+  // router.afterEach((to, from) => {
+  //   setSystemInfo({ initPorject: true })
+  // });
 }

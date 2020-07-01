@@ -1,6 +1,6 @@
 <template>
   <div class="about ">
-    <h1>This is an about page</h1>
+    <h1>404 404 404 404 404</h1>
     <el-button @click="upThemeFun">{{ $t('navbar.test') }}</el-button>
   </div>
 </template>
@@ -18,7 +18,7 @@ interface OPTIONS {
 type RELOAD = () => void;
 
 @Component
-export default class About extends Vue {
+export default class SOS extends Vue {
   options: OPTIONS[] = [{
     value: '选项1',
     label: '黄金糕'

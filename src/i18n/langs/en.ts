@@ -4,6 +4,11 @@ const en = {
     test: 'test',
     close: 'close'
   },
+  tip: {
+    error: {
+      page: 'error page'
+    }
+  },
   ...enLocale
 }
 export default en

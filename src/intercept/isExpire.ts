@@ -10,7 +10,8 @@ import { userInfo, systemInfo } from '@function/handlerVuex'
 
 export default function () {
   router.beforeEach((to, from, next) => {
-    console.log(JSON.stringify(systemInfo()))
+    console.log(to)
     next()
+    console.log(6666)
   })
 }

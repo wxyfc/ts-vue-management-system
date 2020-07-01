@@ -4,6 +4,11 @@ const cn = {
     test: '测试',
     close: '关闭'
   },
+  tip: {
+    error: {
+      page: '找不到的错误页面'
+    }
+  },
   ...zhLocale
 }
 export default cn

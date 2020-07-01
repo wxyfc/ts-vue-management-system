@@ -1,0 +1,24 @@
+[
+  {
+    "path" : "/menu" ,
+    "name" : "menu" ,
+    "component" : "@system/MeetMain" ,
+    "redirect" : "/menu/home" ,
+    "children" : [
+      {
+        "path" : "/menu/home" ,
+        "name" : "/menu/home" ,
+        "component" : "demo/Demo" ,
+        "meta" : {
+          "views" : [ ] ,
+          "role" : [ ] ,
+          "show" : {
+            "icon" : "" ,
+            "title" : "" ,
+            "loading" : true
+          }
+        }
+      }
+    ]
+  }
+]

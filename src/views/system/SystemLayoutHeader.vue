@@ -17,7 +17,7 @@ export default class SystemLayoutHeader extends Mixins(infoMixin) {
   }
 
   test () {
-    this.setUserInfo({ test: 111111111 })
+
   }
 }
 </script>

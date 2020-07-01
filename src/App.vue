@@ -5,6 +5,8 @@
 </template>
 
 <script lang="ts">
+/* eslint-disable */
+// @ts-nocheck
 import { Component, Vue, Provide } from 'vue-property-decorator'
 
 type RELOAD = () => void;
