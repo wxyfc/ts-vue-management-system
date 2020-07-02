@@ -55,7 +55,8 @@ export default class Login extends Mixins(infoMixin) {
   }
 
   created () {
-    this.setUserInfo({ UserRole: [1111] })
+    // this.setUserInfo({ [process.env.VUE_APP_USER_IDENTITY]: [1111] })
+    this.clearVuex()
   }
 }
 </script>

@@ -22,11 +22,9 @@ export default new Vuex.Store({
     systemInfo: { // 系统信息
       initPorject: false, // 是否初始化过项目
       asyncRouter: false, // 是否加载过异步路由
+      allRoutes: [], // 所有通过的路由 用来渲染左侧菜单栏的
       elementNavMenu: 'vertical', // element 菜单栏的显示方式垂直或者水平  vertical / horizontal 屏幕小于996px会被改为水平
       systemScreenSize: 'large' // 当前屏幕的大小 大屏或者小屏 large / small 屏幕小于996px会被改为小屏
-      // systemFontSize: '_small', // 当前系统字体大小
-      // systemTheme: '_main', // 当前系统主题
-      // systemLayout: '_header' // 当前系统布局 仅在 large 大屏下生效
     }
   },
   getters: {
@@ -168,30 +166,37 @@ export default new Vuex.Store({
 
     clearVuex (state: STATEIFY, value) {
       const stateList = ['userInfo', 'otherInfo', 'briefInfo', 'systemInfo']
+      const resetSystemInfo = () => {
+        state['systemInfo'] = {
+          initPorject: false, // 是否初始化过项目
+          asyncRouter: false, // 是否加载过异步路由
+          allRoutes: [], // 所有通过的路由 用来渲染左侧菜单栏的
+        }
+      }
       if (inspectType(value) === 'undefiend') {
         for (const key in stateList) {
-          state[stateList[key]] = {}
+          if (stateList[key] !== 'systemInfo') {
+            state[stateList[key]] = {}
+          } else {
+            resetSystemInfo()
+          }
         }
       } else if (inspectType(value) === 'string') {
-        state[value] = {}
+        if (value !== 'systemInfo') {
+          state[value] = {}
+        } else {
+          resetSystemInfo()
+        }
       } else if (inspectType(value) === 'array') {
         let filValue = stateList.filter(x => value.includes(x))
         for (const key in filValue) {
-          state[filValue[key]] = {}
+          if (filValue[key] !== 'systemInfo') {
+            state[filValue[key]] = {}
+          } else {
+            resetSystemInfo()
+          }
         }
       }
-      // if (inspectType(value) === 'undefiend' || (inspectType(value) === 'string' && value === 'userInfo') || (inspectType(value) === 'array' && value.includes('userInfo'))) {
-      //   state.userInfo = {}
-      // }
-      // if (inspectType(value) === 'undefiend' || (inspectType(value) === 'string' && value === 'otherInfo') || (inspectType(value) === 'array' && value.includes('otherInfo'))) {
-      //   state.otherInfo = {}
-      // }
-      // if (inspectType(value) === 'undefiend' || (inspectType(value) === 'string' && value === 'briefInfo') || (inspectType(value) === 'array' && value.includes('briefInfo'))) {
-      //   state.briefInfo = {}
-      // }
-      // if (inspectType(value) === 'undefiend' || (inspectType(value) === 'string' && value === 'systemInfo') || (inspectType(value) === 'array' && value.includes('systemInfo'))) {
-      //   state.systemInfo = {}
-      // }
     }
   },
   actions: {

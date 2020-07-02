@@ -1,9 +1,13 @@
 [
   {
-    "path" : "/login" ,
-    "name" : "login" ,
-    "component" : "@system/login"
+    "path" : "/" ,
+    "name" : "index" ,
+    "redirect" : "/menu"
   } , {
+  "path" : "/login" ,
+  "name" : "login" ,
+  "component" : "@system/login"
+} , {
   "path" : "/404" ,
   "name" : "404" ,
   "component" : "@system/404"
