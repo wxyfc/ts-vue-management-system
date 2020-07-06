@@ -1,6 +1,6 @@
 <template>
   <div class="about ">
-    <h1>Login Login Login Login Login</h1>
+    <h1>This is an about async</h1>
     <el-button @click="upThemeFun">{{ $t('navbar.test') }}</el-button>
   </div>
 </template>
@@ -8,7 +8,8 @@
 <script lang="ts">
 /* eslint-disable */
 // @ts-nocheck
-import { Component, Prop, Inject, Mixins } from 'vue-property-decorator'
+
+import { Component, Prop, Mixins, Inject } from 'vue-property-decorator'
 import { setLocal } from '@function/browserActivity'
 import { setTheme, setFont, setLayout } from '@function/projectActivity'
 import infoMixin from '@mixin/infoMixin'
@@ -21,7 +22,7 @@ interface OPTIONS {
 type RELOAD = () => void;
 
 @Component
-export default class Login extends Mixins(infoMixin) {
+export default class AsyncDemo extends Mixins(infoMixin) {
   options: OPTIONS[] = [{
     value: '选项1',
     label: '黄金糕'
@@ -55,9 +56,7 @@ export default class Login extends Mixins(infoMixin) {
   }
 
   created () {
-    this.setUserInfo({ [process.env.VUE_APP_USER_IDENTITY_KEY]: [1111] })
-    this.lastUserInfo()
-    // this.clearVuex()
+    this.setUserInfo({ [process.env.VUE_APP_USER_IDENTITY_KEY]: [4444, 2222, 1111, 1111, 22222] })
   }
 }
 </script>

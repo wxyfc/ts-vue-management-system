@@ -4,11 +4,39 @@
     "name" : "async" ,
     "component" : "@system/MeetMain" ,
     "redirect" : "/async/home" ,
+    "meta" : {
+      "views" : [ "menu" ]
+    } ,
     "children" : [
       {
         "path" : "/async/home" ,
         "name" : "/async/home" ,
-        "component" : "demo/Demo"
+        "component" : "demo/AsyncDemo" ,
+        "meta" : {
+          "views" : [ "menu" ] ,
+          "role" : [ 1111 , 22222 , 3333333333 , 44444444 ] ,
+          "show" : {
+            "icon" : "" ,
+            "title" : "async router" ,
+            "loading" : true
+          }
+        } ,
+        "children" : [
+          {
+            "path" : "/async/home" ,
+            "name" : "/async/home" ,
+            "component" : "demo/AsyncDemo" ,
+            "meta" : {
+              "views" : [ "menu" ] ,
+              "role" : [ 1111 , 22222 , 3333333333 , 44444444 ] ,
+              "show" : {
+                "icon" : "" ,
+                "title" : "async router" ,
+                "loading" : true
+              }
+            }
+          }
+        ]
       }
     ]
   }

@@ -17,7 +17,7 @@ interface CHILDREN {
 
 const recursion = (route: CHILDREN) => {
   // 读取配置中用户的角色字段来获取用户的角色值
-  let user = userInfo()[process.env.VUE_APP_USER_IDENTITY]
+  let user = userInfo()[process.env.VUE_APP_USER_IDENTITY_KEY]
   let current = false
   // 如果路由配置了meta role 才会进行拦截 没有配置说明不拦截
   if (user && user.length && route.meta && route.meta.role && route.meta.role.length) {

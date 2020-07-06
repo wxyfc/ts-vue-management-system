@@ -13,7 +13,7 @@ export default function () {
   isInitPorject()
   /*
   *  是否初始化路由路由拦截
-  *  没有进行过初始化路由,将同步路由
+  *  没有进行过初始化路由,将初始化路由
   * */
   isInitRouter()
   /*

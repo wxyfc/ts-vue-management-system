@@ -9,6 +9,13 @@ const cn = {
       page: '找不到的错误页面'
     }
   },
+  menu: {
+    title: {
+      'async router': '异步路由',
+      'menu router': '菜单路由',
+      undefined: '未定义'
+    }
+  },
   ...zhLocale
 }
 export default cn

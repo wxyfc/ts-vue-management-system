@@ -10,6 +10,7 @@ import router from './router'
 import store from './store'
 import initPorject from '@function/projectActivity'
 import intercept from './intercept'
+import './components'
 
 Vue.use(ElementUI, { size: 'mini', zIndex: 5233, i18n: (key: string, value: string) => i18n.t(key, value) })
 Vue.config.productionTip = false

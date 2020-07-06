@@ -4,17 +4,20 @@
     "name" : "menu" ,
     "component" : "@system/MeetMain" ,
     "redirect" : "/menu/home" ,
+    "meta" : {
+      "views" : [ "menu" ]
+    } ,
     "children" : [
       {
         "path" : "/menu/home" ,
         "name" : "/menu/home" ,
         "component" : "demo/Demo" ,
         "meta" : {
-          "views" : [ ] ,
-          "role" : [ 2222 ] ,
+          "views" : [ "menu" ] ,
+          "role" : [ 1111 ] ,
           "show" : {
             "icon" : "" ,
-            "title" : "" ,
+            "title" : "menu router" ,
             "loading" : true
           }
         }

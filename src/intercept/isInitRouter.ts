@@ -7,10 +7,8 @@
 import router from '@router'
 import { systemInfo, setSystemInfo } from '@function/handlerVuex'
 import initRouter from '@function/initRouter'
-import i18n from '@/i18n'
-import { Message } from 'element-ui';
+import nextError from './nextError'
 
-const error = process.env.VUE_APP_ERROR_PAGE
 export default function () {
   router.beforeEach((to, from, next) => {
     /*
@@ -21,38 +19,30 @@ export default function () {
     *  通过initPorject判断是否加载过第一种情况
     * */
     if (to.name === null) {
+      // 没有路由则认为需要初始化路由
       let { initPorject, asyncRouter } = systemInfo()
       if (!initPorject) {
         // 没有进行过第一种情况
         console.log('没有进行过第一种情况')
         let localRouter = initRouter(require("@json/localRouter.json"))
         let menuRouter = initRouter(require("@json/menuRouter.json"))
-        setSystemInfo({ initPorject: true }) // 加载第一种后进行initPorject标识true
-        console.log('添加路由')
+        setSystemInfo({ initPorject: true, localRoutes: [...localRouter, ...menuRouter] }) // 加载第一种后进行initPorject标识true
         router.addRoutes([...localRouter, ...menuRouter])
-        console.log('添加过的路由不会再往下执行')
         next(to.path) // 进行跳转到要跳转的路由
       } else if (initPorject && !asyncRouter) {
         // 进行过第一种情况 但是没进行异步路由
         console.log('进行过第一种情况但没有进行第二种情况')
-        asyncRouterHandlerFun().then((asyncRoute) => {
-          setSystemInfo({ asyncRouter: true }) // 加载第二种后进行asyncRouter标识true
-          console.log('添加路由')
-          router.addRoutes(asyncRoute)
-          console.log('添加过的路由不会再往下执行')
+        asyncRouterHandlerFun().then((asyncRoutes) => {
+          setSystemInfo({ asyncRouter: true, asyncRoutes }) // 加载第二种后进行asyncRouter标识true
+          router.addRoutes(asyncRoutes)
           next(to.path)
         })
       } else {
         console.log('进行过第一第二还是没有')
-        // next(new Error()) // 进行跳转到要跳转的路由
-        if (error === 'true') {
-          next('/404')
-        } else {
-          Message({ message: i18n.tc('tip.error.page'), type: 'error' })
-          next(false)
-        }
+        nextError(next)
       }
     } else {
+      // 有路由不需要进行初始化路由
       next()
       // next({ ...to, replace: true })
     }
@@ -61,6 +51,7 @@ export default function () {
 
 function asyncRouterHandlerFun () {
   return new Promise((resolve, reject) => {
+    // http 接口 异步加载路由处
     setTimeout(() => {
       resolve(initRouter(require("@json/asyncRouter.json")))
     }, 1000)

@@ -22,7 +22,8 @@ export default new Vuex.Store({
     systemInfo: { // 系统信息
       initPorject: false, // 是否初始化过项目
       asyncRouter: false, // 是否加载过异步路由
-      allRoutes: [], // 所有通过的路由 用来渲染左侧菜单栏的
+      asyncRoutes: [], // 异步通过的路由 用来渲染左侧菜单栏的
+      localRoutes: [], // 本地通过的路由 用来渲染左侧菜单栏的
       elementNavMenu: 'vertical', // element 菜单栏的显示方式垂直或者水平  vertical / horizontal 屏幕小于996px会被改为水平
       systemScreenSize: 'large' // 当前屏幕的大小 大屏或者小屏 large / small 屏幕小于996px会被改为小屏
     }
@@ -170,7 +171,8 @@ export default new Vuex.Store({
         state['systemInfo'] = {
           initPorject: false, // 是否初始化过项目
           asyncRouter: false, // 是否加载过异步路由
-          allRoutes: [], // 所有通过的路由 用来渲染左侧菜单栏的
+          asyncRoutes: [], // 异步通过的路由 用来渲染左侧菜单栏的
+          localRoutes: [], // 本地通过的路由 用来渲染左侧菜单栏的
         }
       }
       if (inspectType(value) === 'undefiend') {

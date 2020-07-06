@@ -7,11 +7,34 @@
 
 import router from '@router'
 import { userInfo, systemInfo } from '@function/handlerVuex'
+import nextError from './nextError'
 
 export default function () {
   router.beforeEach((to, from, next) => {
-    console.log(to)
-    next()
-    console.log(6666)
+    let user = userInfo()[process.env.VUE_APP_USER_IDENTITY_KEY]
+    if (to.meta && to.meta.role && to.meta.role.length) {
+      // 如果路由配置了角色 那么认为该路由需要拦截
+      let lastTime = userInfo().lastTime
+      // 该路由需要拦截 但是没有用户的登录时间 那么认为用户时间过期
+      if (lastTime && Object.keys(lastTime).length == 2 && lastTime.date && lastTime.second) {
+        let EXPIRE = process.env.VUE_APP_USER_EXPIRE_TIME
+        let nowTime = new Date().getTime()
+        let dVlue = 3600000 * (+EXPIRE)
+        if ((nowTime - lastTime.second) < dVlue) {
+          next()
+        } else {
+          // 时间过期
+          console.log('时间过期')
+          nextError(next)
+        }
+      } else {
+        // 没有登录时间
+        console.log('没有登录时间')
+        nextError(next)
+      }
+    } else {
+      // 如果没有配置则认为不需要拦截
+      next()
+    }
   })
 }
