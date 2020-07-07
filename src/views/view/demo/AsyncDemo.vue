@@ -2,6 +2,8 @@
   <div class="about ">
     <h1>This is an about async</h1>
     <el-button @click="upThemeFun">{{ $t('navbar.test') }}</el-button>
+    <el-button @click="upThemeFun">{{ $t('navbar.test') }}</el-button>
+    <el-button @click="upThemeFun">{{ $t('navbar.test') }}</el-button>
   </div>
 </template>
 
@@ -47,8 +49,8 @@ export default class AsyncDemo extends Mixins(infoMixin) {
   @Prop() private msg!: string;
 
   upThemeFun () {
-    this.$set(this.$i18n, 'locale', 'en-US')
-    setLocal('language', 'en-US')
+    // this.$set(this.$i18n, 'locale', 'en-US')
+    // setLocal('language', 'en-US')
     setTheme('_high')
     setFont('_large')
     setLayout('_aside')

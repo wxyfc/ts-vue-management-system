@@ -2,6 +2,9 @@
   <div class="about ">
     <h1>This is an about page11111</h1>
     <el-button @click="upThemeFun">{{ $t('navbar.test') }}</el-button>
+    <el-button @click="setLayout('_header','_large','_main')">{{ $t('navbar.test') }}</el-button>
+    <el-button @click="setLayout('_aside','_medium','_high')">{{ $t('navbar.test') }}</el-button>
+    <el-button @click="setLayout('_aside','_small','_dull')">{{ $t('navbar.test') }}</el-button>
   </div>
 </template>
 
@@ -46,9 +49,18 @@ export default class Demo extends Mixins(infoMixin) {
   @Inject() readonly reload!: RELOAD
   @Prop() private msg!: string;
 
+  setLayout (type: string, font: string, color: string) {
+    //
+    //
+    //
+    setLayout(type)
+    setFont(font)
+    setTheme(color)
+  }
+
   upThemeFun () {
-    this.$set(this.$i18n, 'locale', 'en-US')
-    setLocal('language', 'en-US')
+    // this.$set(this.$i18n, 'locale', 'en-US')
+    // setLocal('language', 'en-US')
     setTheme('_high')
     setFont('_large')
     setLayout('_aside')

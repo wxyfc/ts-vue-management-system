@@ -92,4 +92,53 @@ export default class SystemRecursionMenu extends Mixins(infoMixin) {
 }
 </script>
 <style scoped lang="scss">
+  .el-menu {
+    @include _background("_theme-color");
+    /deep/ .el-menu--popup {
+      @include _background("_theme-color");
+      @include _color("_color");
+    }
+    .el-submenu {
+      @include _background("_theme-color");
+      @include _color("_color");
+      .el-menu--inline {
+        @include _background("_theme-color");
+        .el-menu-item {
+          @include _background("_theme-color");
+          @include _color("_color");
+          &.is-active, &:hover, &:focus {
+            @include _background("_vice-color");
+            @include _color("_theme-color");
+          }
+          &.is-active {
+            /*background-clip: content-box*/
+          }
+        }
+      }
+      /deep/ .el-submenu__title {
+        @include _background("_theme-color");
+        @include _color("_color");
+        border-color: transparent;
+      }
+      /deep/ .el-menu--inline {
+        @include _background("_theme-color");
+        @include _color("_color");
+      }
+      /deep/ .el-menu--popup {
+        @include _background("_theme-color");
+        @include _color("_color");
+      }
+    }
+    .el-menu-item {
+      @include _background("_theme-color");
+      @include _color("_color");
+      &.is-active, &:hover, &:focus {
+        @include _background("_vice-color");
+        @include _color("_theme-color");
+      }
+      &.is-active {
+        /*background-clip: content-box*/
+      }
+    }
+  }
 </style>

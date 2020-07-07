@@ -27,5 +27,25 @@ export default class SystemLayoutAside extends Mixins(infoMixin) {
   }
 }
 </script>
+<style lang="scss">
+  /deep/ .el-menu--horizontal {
+    @include _background("_theme-color");
+    /deep/ .el-menu--popup {
+      @include _background("_theme-color");
+    }
+  }
+</style>
+
 <style scoped lang="scss">
+  .el-menu {
+    @include _background("_theme-color");
+    @include _color("_color");
+    border-color: transparent;
+    /deep/ .el-submenu__title {
+      &:hover, &:focus {
+        @include _background("_vice-color");
+        @include _color("_theme-color");
+      }
+    }
+  }
 </style>

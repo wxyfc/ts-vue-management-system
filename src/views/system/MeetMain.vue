@@ -1,16 +1,16 @@
 <template>
   <div class="meet-main">
-    <div class="head" @click="setLayout('_header','_large','_main')">
+    <div class="head">
       <SystemLayoutHeader></SystemLayoutHeader>
     </div>
-    <div class="aside" @click="setLayout('_aside','_medium','_high')">
+    <div class="aside">
       <SystemLayoutAside></SystemLayoutAside>
     </div>
     <div class="section">
       <div class="nav">
         <SystemLayoutNav></SystemLayoutNav>
       </div>
-      <div class="main" @click="setLayout('_aside','_small','_dull')">
+      <div class="main">
         <div class="handler-main-content">
           <router-view/>
         </div>
@@ -32,6 +32,9 @@ import { setLayout, setFont, setTheme } from '@function/projectActivity'
 })
 export default class MeetMain extends Vue {
   setLayout (type: string, font: string, color: string) {
+    // @click="setLayout('_header','_large','_main')"
+    // @click="setLayout('_aside','_medium','_high')"
+    // @click="setLayout('_aside','_small','_dull')"
     setLayout(type)
     setFont(font)
     setTheme(color)
@@ -82,7 +85,8 @@ export default class MeetMain extends Vue {
       @include _layout;
       .head {
         grid-area: head;
-        @include _background("_vice-color");
+        @include _background("_theme-color");
+        @include _color("_color");
       }
       .aside {
         grid-area: aside;
@@ -122,6 +126,8 @@ export default class MeetMain extends Vue {
       .head {
         width: 100%;
         min-height: $head-height;
+        @include _background("_theme-color");
+        @include _color("_color");
       }
       .aside {
         width: 100%;
