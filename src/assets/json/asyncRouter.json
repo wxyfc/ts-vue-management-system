@@ -39,5 +39,29 @@
         ]
       }
     ]
-  }
+  } , {
+  "path" : "/menu" ,
+  "name" : "/menu" ,
+  "component" : "@system/MeetMain" ,
+  "redirect" : "/menu/home" ,
+  "meta" : {
+    "views" : [ "menu" ]
+  } ,
+  "children" : [
+    {
+      "path" : "/menu/home" ,
+      "name" : "/menu/home" ,
+      "component" : "demo/Demo" ,
+      "meta" : {
+        "views" : [ "menu" , "tag" ] ,
+        "role" : [ 1111 ] ,
+        "show" : {
+          "icon" : "el-icon-menu" ,
+          "title" : "menu router" ,
+          "loading" : true
+        }
+      }
+    }
+  ]
+}
 ]

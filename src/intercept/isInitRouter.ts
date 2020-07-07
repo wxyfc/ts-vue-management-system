@@ -24,10 +24,9 @@ export default function () {
       if (!initPorject) {
         // 没有进行过第一种情况
         console.log('没有进行过第一种情况')
-        let localRouter = initRouter(require("@json/localRouter.json"))
-        let menuRouter = initRouter(require("@json/menuRouter.json"))
-        setSystemInfo({ initPorject: true, localRoutes: [...localRouter, ...menuRouter] }) // 加载第一种后进行initPorject标识true
-        router.addRoutes([...localRouter, ...menuRouter])
+        let localRoutes = initRouter(require("@json/localRouter.json"))
+        setSystemInfo({ initPorject: true, localRoutes }) // 加载第一种后进行initPorject标识true
+        router.addRoutes(localRoutes)
         next(to.path) // 进行跳转到要跳转的路由
       } else if (initPorject && !asyncRouter) {
         // 进行过第一种情况 但是没进行异步路由
@@ -52,8 +51,9 @@ export default function () {
 function asyncRouterHandlerFun () {
   return new Promise((resolve, reject) => {
     // http 接口 异步加载路由处
+    let asyncRoutes = initRouter(require("@json/asyncRouter.json"))
     setTimeout(() => {
-      resolve(initRouter(require("@json/asyncRouter.json")))
+      resolve(asyncRoutes)
     }, 1000)
   })
 }
