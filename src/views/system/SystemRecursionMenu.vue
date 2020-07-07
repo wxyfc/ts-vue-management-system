@@ -56,7 +56,6 @@ export default class SystemRecursionMenu extends Mixins(infoMixin) {
   // 该菜单是否有子菜单
   isMenuChildrenFun (menu) {
     let NUM = process.env.VUE_APP_SHOW_CHILDREN_NUM
-    console.log(NUM)
     if (menu.children && menu.children.length >= (+NUM)) {
       return true
     } else {

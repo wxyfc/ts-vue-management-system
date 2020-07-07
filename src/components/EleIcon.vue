@@ -1,6 +1,6 @@
 <template>
   <el-tooltip :effect="effect" :content="content" :placement="placement" :disabled="!content">
-    <i :class="[iClass,'ele-icon']"></i>
+    <i :class="[iClass,'ele-icon']" @click="iHandlerClickFun"></i>
   </el-tooltip>
 </template>
 <script lang="ts">
@@ -21,6 +21,11 @@ export default class EleIcon extends Vue {
   @Prop({ default: '' }) content !: string;
   @Prop({ default: 'el-icon-star-off' }) 'i-class' !: string;
   @Prop({ default: 'bottom', required: false }) placement !: string; // !: string 不加也没问题
+
+  iHandlerClickFun () {
+    this.$emit('click')
+  }
+
   // created () {
   // }
 }

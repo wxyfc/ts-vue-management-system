@@ -1,7 +1,7 @@
 [
   {
     "path" : "/menu" ,
-    "name" : "menu" ,
+    "name" : "/menu" ,
     "component" : "@system/MeetMain" ,
     "redirect" : "/menu/home" ,
     "meta" : {
@@ -13,10 +13,10 @@
         "name" : "/menu/home" ,
         "component" : "demo/Demo" ,
         "meta" : {
-          "views" : [ "menu" ] ,
+          "views" : [ "menu" , "tag" ] ,
           "role" : [ 1111 ] ,
           "show" : {
-            "icon" : "" ,
+            "icon" : "el-icon-menu" ,
             "title" : "menu router" ,
             "loading" : true
           }

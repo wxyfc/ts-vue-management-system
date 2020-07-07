@@ -95,6 +95,8 @@ export default class MeetMain extends Vue {
           line-height: $nav-height - $layout-padding * 2;
           width: 100%;
           height: $nav-height;
+          display: flex;
+          align-items: center;
           overflow: hidden;
           @include _layout-padding;
           &:hover {

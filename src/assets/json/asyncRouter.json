@@ -1,7 +1,7 @@
 [
   {
     "path" : "/async" ,
-    "name" : "async" ,
+    "name" : "/async" ,
     "component" : "@system/MeetMain" ,
     "redirect" : "/async/home" ,
     "meta" : {
@@ -13,7 +13,7 @@
         "name" : "/async/home" ,
         "component" : "demo/AsyncDemo" ,
         "meta" : {
-          "views" : [ "menu" ] ,
+          "views" : [ "menu" , "tag" ] ,
           "role" : [ 1111 , 22222 , 3333333333 , 44444444 ] ,
           "show" : {
             "icon" : "" ,
@@ -27,7 +27,7 @@
             "name" : "/async/home" ,
             "component" : "demo/AsyncDemo" ,
             "meta" : {
-              "views" : [ "menu" ] ,
+              "views" : [ "menu" , "tag" ] ,
               "role" : [ 1111 , 22222 , 3333333333 , 44444444 ] ,
               "show" : {
                 "icon" : "" ,

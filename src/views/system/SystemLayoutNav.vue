@@ -1,29 +1,20 @@
 <template>
-  <div>
-    <div class="system-layout-nav">
-      隐藏的菜单栏{{ $t('navbar.close') }}
-      <EleIcon class="ele-icon-hide" i-class="el-icon-circle-close" :content="$t('navbar.close')"></EleIcon>
-      <span></span>
-    </div>
-
-    <div class="system-layout-nav">
-      隐藏的菜单栏
-      <EleIcon class="ele-icon-hide"></EleIcon>
-      <span></span>
-    </div>
-
-    <div class="system-layout-nav">
-      隐藏的菜单栏
-      <EleIcon class="ele-icon-hide"></EleIcon>
-      <span></span>
-    </div>
-  </div>
+  <renderless-component>
+    <renderless-component v-for="(value,key) in tagRouters" :key="key">
+      <div :class="handlerTagShowCloseFun(key)">
+        <EleIcon :i-class="value&&value.icon"></EleIcon>
+        {{ $t(`menu.title.${value&&value.title}`) }}
+        <EleIcon class="ele-icon-hide" i-class="el-icon-circle-close" :content="$t('navbar.close')" @click="tagCloseHandlerFun(key)"></EleIcon>
+      </div>
+    </renderless-component>
+  </renderless-component>
 </template>
 <script lang="ts">
 /* eslint-disable */
 // @ts-nocheck
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Watch } from 'vue-property-decorator'
 import { setLayout, setFont, setTheme } from '@function/projectActivity'
+import { RouteConfig } from 'vue-router'
 
 @Component({
   components: {
@@ -31,6 +22,29 @@ import { setLayout, setFont, setTheme } from '@function/projectActivity'
   }
 })
 export default class SystemLayoutNav extends Vue {
+  tagRouters: object = {}
+
+  @Watch('$route', { immediate: true, deep: true })
+  onRouteChanged (menu: RouteConfig) {
+    if (menu.meta && menu.meta.views && menu.meta.views.length && menu.meta.views.includes('tag')) {
+      this.$set(this.tagRouters, menu.path, menu.meta.show)
+    }
+  }
+
+  // 处理tag标签当前显示的样式
+  handlerTagShowCloseFun (path) {
+    return ['system-layout-nav', { 'system-layout-nav-disabled-close': Object.keys(this.tagRouters).length == 1 }, { 'system-layout-nav-is-activity': path == this.$route.path }]
+  }
+
+  // tag标签关闭事件处理
+  tagCloseHandlerFun (path) {
+    this.$delete(this.tagRouters, path,)
+    if (path == this.$route.path) {
+      let routerPaths = Object.keys(this.tagRouters)
+      this.$router.replace(routerPaths[routerPaths.length - 1])
+    }
+  }
+
   // created () {
   // }
 }
@@ -54,9 +68,10 @@ export default class SystemLayoutNav extends Vue {
   }
 
   .system-layout-nav-is-activity {
+    background: #ff1a19;
   }
 
-  .system-layout-nav-disabled-icon {
+  .system-layout-nav-disabled-close {
     &:last-child {
       .ele-icon-hide {
         display: none;
