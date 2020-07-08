@@ -14,7 +14,12 @@ const cn = {
       'async router': '异步路由',
       'menu router': '菜单路由',
       undefined: '未定义'
+    },
+    setting: {
+      'adjust menu mode': '调整菜单模式',
+      'unique-opened': '只展开一个子菜单'
     }
+
   },
   ...zhLocale
 }

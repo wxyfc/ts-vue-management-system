@@ -87,10 +87,36 @@ export default class MeetMain extends Vue {
         grid-area: head;
         @include _background("_theme-color");
         @include _color("_color");
+        position: relative;
+        z-index: 2;
+        &::before {
+          content: '';
+          z-index: 1;
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          @include _border-box-shadow;
+          // @include _background("_border-color");
+        }
       }
       .aside {
         grid-area: aside;
         @include _background("_theme-color");
+        position: relative;
+        z-index: 2;
+        &::before {
+          content: '';
+          z-index: 1;
+          position: absolute;
+          top: $head-height;
+          right: -1px;
+          width: 1px;
+          height: calc(100% - #{$head-height});
+          @include _border-box-shadow;
+          // @include _background("_border-color");
+        }
       }
       .section {
         grid-area: section;

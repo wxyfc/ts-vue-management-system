@@ -1,7 +1,7 @@
 <template>
   <renderless-component>
     <renderless-component v-for="(value,key) in tagRouters" :key="key">
-      <div :class="handlerTagShowCloseFun(key)">
+      <div :class="handlerTagShowCloseFun(key)" @click="handlerTagNext(key)">
         <EleIcon :i-class="value&&value.icon"></EleIcon>
         {{ $t(`menu.title.${value&&value.title}`) }}
         <EleIcon class="ele-icon-hide" i-class="el-icon-circle-close" :content="$t('navbar.close')" @click="tagCloseHandlerFun(key)"></EleIcon>
@@ -45,6 +45,13 @@ export default class SystemLayoutNav extends Vue {
     }
   }
 
+  // tag点击跳转路由
+  handlerTagNext (path) {
+    if (path !== this.$route.path) {
+      this.$router.push(path)
+    }
+  }
+
   // created () {
   // }
 }
@@ -55,8 +62,11 @@ export default class SystemLayoutNav extends Vue {
     align-items: center;
     @include _font-size('_title');
     @include _border-box-shadow;
+    @include _background("_theme-color");
+    @include _color("_color");
     padding: 0 12px;
     margin-right: 10px;
+    cursor: pointer;
     .ele-icon-hide {
       display: none;
     }
@@ -68,7 +78,9 @@ export default class SystemLayoutNav extends Vue {
   }
 
   .system-layout-nav-is-activity {
-    background: #ff1a19;
+    @include _background("_vice-color");
+    @include _color("_theme-color");
+    cursor: no-drop;
   }
 
   .system-layout-nav-disabled-close {

@@ -104,11 +104,13 @@ export default class SystemRecursionMenu extends Mixins(infoMixin) {
       .el-menu--inline {
         @include _background("_theme-color");
         .el-menu-item {
+          @include _font-size('_title');
           @include _background("_theme-color");
           @include _color("_color");
           &.is-active, &:hover, &:focus {
             @include _background("_vice-color");
             @include _color("_theme-color");
+            border-color: transparent;
           }
           &.is-active {
             /*background-clip: content-box*/
@@ -118,6 +120,7 @@ export default class SystemRecursionMenu extends Mixins(infoMixin) {
       /deep/ .el-submenu__title {
         @include _background("_theme-color");
         @include _color("_color");
+        @include _font-size('_title');
         border-color: transparent;
       }
       /deep/ .el-menu--inline {
@@ -132,9 +135,11 @@ export default class SystemRecursionMenu extends Mixins(infoMixin) {
     .el-menu-item {
       @include _background("_theme-color");
       @include _color("_color");
+      @include _font-size('_title');
       &.is-active, &:hover, &:focus {
         @include _background("_vice-color");
         @include _color("_theme-color");
+        border-color: transparent;
       }
       &.is-active {
         /*background-clip: content-box*/
