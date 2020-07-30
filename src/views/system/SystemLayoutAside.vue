@@ -28,7 +28,6 @@ import infoMixin from '@mixin/infoMixin'
 @Component({
   components: {
     SystemRecursionMenu: () => import('./SystemRecursionMenu'),
-    EleIcon: () => import('@components/EleIcon.vue'),
   },
   computed: {
     menuRouters: {

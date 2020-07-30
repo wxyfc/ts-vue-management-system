@@ -18,7 +18,6 @@ import { RouteConfig } from 'vue-router'
 
 @Component({
   components: {
-    EleIcon: () => import('@components/EleIcon.vue'),
   }
 })
 export default class SystemLayoutNav extends Vue {
@@ -81,6 +80,7 @@ export default class SystemLayoutNav extends Vue {
     @include _background("_vice-color");
     @include _color("_theme-color");
     cursor: no-drop;
+    pointer-events: none;
   }
 
   .system-layout-nav-disabled-close {
