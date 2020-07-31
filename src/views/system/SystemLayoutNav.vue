@@ -4,7 +4,7 @@
       <div :class="handlerTagShowCloseFun(key)" @click="handlerTagNext(key)">
         <EleIcon :i-class="value&&value.icon"></EleIcon>
         {{ $t(`menu.title.${value&&value.title}`) }}
-        <EleIcon class="ele-icon-hide" i-class="el-icon-circle-close" :content="$t('navbar.close')" @click="tagCloseHandlerFun(key)"></EleIcon>
+        <EleIcon v-if="$route.path!=key" class="ele-icon-hide" i-class="el-icon-circle-close" :content="$t('navbar.title.close')" @click="tagCloseHandlerFun(key)"></EleIcon>
       </div>
     </renderless-component>
   </renderless-component>
@@ -12,15 +12,15 @@
 <script lang="ts">
 /* eslint-disable */
 // @ts-nocheck
-import { Component, Vue, Watch } from 'vue-property-decorator'
+import { Component, Mixins, Watch } from 'vue-property-decorator'
 import { setLayout, setFont, setTheme } from '@function/projectActivity'
 import { RouteConfig } from 'vue-router'
+import infoMixin from '@mixin/infoMixin'
 
 @Component({
-  components: {
-  }
+  components: {}
 })
-export default class SystemLayoutNav extends Vue {
+export default class SystemLayoutNav extends Mixins(infoMixin) {
   tagRouters: object = {}
 
   @Watch('$route', { immediate: true, deep: true })
@@ -36,11 +36,12 @@ export default class SystemLayoutNav extends Vue {
   }
 
   // tag标签关闭事件处理
-  tagCloseHandlerFun (path) {
-    this.$delete(this.tagRouters, path,)
-    if (path == this.$route.path) {
-      let routerPaths = Object.keys(this.tagRouters)
-      this.$router.replace(routerPaths[routerPaths.length - 1])
+  tagCloseHandlerFun (p) {
+    this.$delete(this.tagRouters, p)
+    if (p == this.$route.path) {
+      let routerPaths = this.JSONCopy(Object.keys(this.tagRouters))
+      let path = routerPaths[routerPaths.length - 1]
+      this.$router.replace({ path })
     }
   }
 
@@ -80,7 +81,7 @@ export default class SystemLayoutNav extends Vue {
     @include _background("_vice-color");
     @include _color("_theme-color");
     cursor: no-drop;
-    pointer-events: none;
+    /*pointer-events: none;*/
   }
 
   .system-layout-nav-disabled-close {

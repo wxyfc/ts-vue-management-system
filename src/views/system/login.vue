@@ -1,17 +1,17 @@
 <template>
   <div class="login-mian ">
     <div class="login-content">
-      <el-form ref="login-form" :model="loginForm" label-width="80px" label-position="top">
-        <el-form-item label="活动名称">
-          <el-input v-model="loginForm.account" placeholder="请输入内容" size="medium"></el-input>
+      <p class="login-content-title-p">{{ $t('context.button.login') }}</p>
+      <el-form ref="login-form" :model="loginForm" label-width="80px" label-position="top" class="login-content-form">
+        <el-form-item :label="$t('label.form.account')" prop="account" :rules="formRules.inputLengthRule()">
+          <el-input v-model="loginForm.account" :placeholder="$t('placeholder.form.password')" size="medium"></el-input>
         </el-form-item>
-        <el-form-item label="活动名称">
-          <el-input v-model="loginForm.account" placeholder="请输入内容" size="medium"></el-input>
-        </el-form-item>
-        <el-form-item label="活动名称">
-          <EleButton @click="loginFun"></EleButton>
+        <el-form-item :label="$t('label.form.password')" prop="password" :rules="formRules.inputLengthRule()">
+          <el-input v-model="loginForm.password" :placeholder="$t('placeholder.form.password')" size="medium" show-password></el-input>
         </el-form-item>
       </el-form>
+      <EleButton @click="loginFun('login-form')">{{ $t('context.button.login') }}</EleButton>
+
     </div>
   </div>
 </template>
@@ -24,36 +24,11 @@ import { setLocal } from '@function/browserActivity'
 import { setTheme, setFont, setLayout } from '@function/projectActivity'
 import infoMixin from '@mixin/infoMixin'
 
-interface OPTIONS {
-  value: string;
-  label: string;
-}
-
 type RELOAD = () => void;
-@Component({
-})
+@Component({})
 export default class Login extends Mixins(infoMixin) {
 
   loginForm = {}
-
-  options: OPTIONS[] = [{
-    value: '选项1',
-    label: '黄金糕'
-  }, {
-    value: '选项2',
-    label: '双皮奶'
-  }, {
-    value: '选项3',
-    label: '蚵仔煎'
-  }, {
-    value: '选项4',
-    label: '龙须面'
-  }, {
-    value: '选项5',
-    label: '北京烤鸭'
-  }]
-
-  value = ''
 
   // @Inject('reload') readonly reload!: string
   @Inject() readonly reload!: RELOAD
@@ -68,13 +43,17 @@ export default class Login extends Mixins(infoMixin) {
     this.reload()
   }
 
-  loginFun () {
-    console.log('1')
+  loginFun (formName) {
+    this.$refs[formName].validate((valid) => {
+      if (valid) {
+        alert('submit!');
+      }
+    })
   }
 
   created () {
-    this.setUserInfo({ [process.env.VUE_APP_USER_IDENTITY_KEY]: [1111] })
-    this.lastUserInfo()
+    // this.setUserInfo({ [process.env.VUE_APP_USER_IDENTITY_KEY]: [1111] })
+    // this.lastUserInfo()
     // this.clearVuex()
   }
 }
@@ -101,8 +80,16 @@ export default class Login extends Mixins(infoMixin) {
       width: $login-width;
       height: $login-height;
       box-sizing: border-box;
-      padding: calc(#{$login-height} / 8) calc(#{$login-width} / 8);
+      padding: calc(#{$login-height} / 13) calc(#{$login-width} / 8);
       @include _border-box-shadow;
+      .login-content-title-p {
+        text-align: center;
+        margin-bottom: 14px !important;
+        @include _font-size('_title');
+      }
+      .login-content-form {
+        border: 1px solid transparent;
+      }
     }
   }
 </style>

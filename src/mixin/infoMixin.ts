@@ -1,4 +1,9 @@
+/* eslint-disable */
+// @ts-nocheck
+
 import { Component, Vue } from 'vue-property-decorator'
+import formRules from '@function/formRules'
+
 import {
   userInfo,
   otherInfo,
@@ -122,5 +127,11 @@ export default class InfoMixin extends Vue {
     //   mutations: 'clearVuex',
     //   value: {}
     // })
+  }
+
+  formRules = formRules
+
+  JSONCopy (v: any) {
+    return JSON.parse(JSON.stringify(v))
   }
 }
