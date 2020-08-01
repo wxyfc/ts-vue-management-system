@@ -1,8 +1,8 @@
 <template>
-  <div class="login-mian ">
+  <div class="login-mian">
     <div class="login-content">
       <p class="login-content-title-p">{{ $t('context.button.login') }}</p>
-      <el-form ref="login-form" :model="loginForm" label-width="80px" label-position="top" class="login-content-form">
+      <el-form ref="login-form" :model="loginForm" label-width="80px" label-position="top" class="login-content-form" @keyup.enter.native="loginFun('login-form')">
         <el-form-item :label="$t('label.form.account')" prop="account" :rules="formRules.inputLengthRule()">
           <el-input v-model="loginForm.account" :placeholder="$t('placeholder.form.password')" size="medium"></el-input>
         </el-form-item>
@@ -10,8 +10,7 @@
           <el-input v-model="loginForm.password" :placeholder="$t('placeholder.form.password')" size="medium" show-password></el-input>
         </el-form-item>
       </el-form>
-      <EleButton @click="loginFun('login-form')">{{ $t('context.button.login') }}</EleButton>
-
+      <EleButton @click="loginFun('login-form')" size="medium" long>{{ $t('context.button.login') }}</EleButton>
     </div>
   </div>
 </template>
@@ -20,40 +19,24 @@
 /* eslint-disable */
 // @ts-nocheck
 import { Component, Prop, Inject, Mixins } from 'vue-property-decorator'
-import { setLocal } from '@function/browserActivity'
-import { setTheme, setFont, setLayout } from '@function/projectActivity'
 import infoMixin from '@mixin/infoMixin'
 
-type RELOAD = () => void;
 @Component({})
 export default class Login extends Mixins(infoMixin) {
 
   loginForm = {}
 
-  // @Inject('reload') readonly reload!: string
-  @Inject() readonly reload!: RELOAD
-  @Prop() private msg!: string;
-
-  upThemeFun () {
-    this.$set(this.$i18n, 'locale', 'en-US')
-    setLocal('language', 'en-US')
-    setTheme('_high')
-    setFont('_large')
-    setLayout('_aside')
-    this.reload()
-  }
-
   loginFun (formName) {
     this.$refs[formName].validate((valid) => {
       if (valid) {
-        alert('submit!');
+        this.setUserInfo({ [process.env.VUE_APP_USER_IDENTITY_KEY]: [1111] })
+        this.lastUserInfo()
+        this.$router.push('/menu')
       }
     })
   }
 
   created () {
-    // this.setUserInfo({ [process.env.VUE_APP_USER_IDENTITY_KEY]: [1111] })
-    // this.lastUserInfo()
     // this.clearVuex()
   }
 }
@@ -80,11 +63,11 @@ export default class Login extends Mixins(infoMixin) {
       width: $login-width;
       height: $login-height;
       box-sizing: border-box;
-      padding: calc(#{$login-height} / 13) calc(#{$login-width} / 8);
+      padding: calc(#{$login-height} / 18) calc(#{$login-width} / 8);
       @include _border-box-shadow;
       .login-content-title-p {
         text-align: center;
-        margin-bottom: 14px !important;
+        margin-bottom: 12px !important;
         @include _font-size('_title');
       }
       .login-content-form {

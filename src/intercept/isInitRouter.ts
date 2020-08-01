@@ -54,6 +54,6 @@ function asyncRouterHandlerFun () {
     let asyncRoutes = initRouter(require("@json/asyncRouter.json"))
     setTimeout(() => {
       resolve(asyncRoutes)
-    }, 1000)
+    }, 200)
   })
 }

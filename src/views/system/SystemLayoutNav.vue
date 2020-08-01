@@ -4,7 +4,7 @@
       <div :class="handlerTagShowCloseFun(key)" @click="handlerTagNext(key)">
         <EleIcon :i-class="value&&value.icon"></EleIcon>
         {{ $t(`menu.title.${value&&value.title}`) }}
-        <EleIcon v-if="$route.path!=key" class="ele-icon-hide" i-class="el-icon-circle-close" :content="$t('navbar.title.close')" @click="tagCloseHandlerFun(key)"></EleIcon>
+        <EleIcon class="ele-icon-hide" i-class="el-icon-circle-close" :content="$t('navbar.title.close')" @click="tagCloseHandlerFun(key)"></EleIcon>
       </div>
     </renderless-component>
   </renderless-component>
@@ -13,7 +13,6 @@
 /* eslint-disable */
 // @ts-nocheck
 import { Component, Mixins, Watch } from 'vue-property-decorator'
-import { setLayout, setFont, setTheme } from '@function/projectActivity'
 import { RouteConfig } from 'vue-router'
 import infoMixin from '@mixin/infoMixin'
 
@@ -51,9 +50,6 @@ export default class SystemLayoutNav extends Mixins(infoMixin) {
       this.$router.push(path)
     }
   }
-
-  // created () {
-  // }
 }
 </script>
 <style scoped lang="scss">

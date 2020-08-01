@@ -1,61 +1,24 @@
 <template>
-  <div class="about ">
-    <h1>404 404 404 404 404</h1>
-    <el-button @click="upThemeFun">{{ $t('navbar.test') }}</el-button>
-  </div>
+  <div class="sos-main"></div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Inject } from 'vue-property-decorator'
-import { setLocal } from '@function/browserActivity'
-import { setTheme, setFont, setLayout } from '@function/projectActivity'
-
-interface OPTIONS {
-  value: string;
-  label: string;
-}
-
-type RELOAD = () => void;
+import { Component, Vue } from 'vue-property-decorator'
 
 @Component
 export default class SOS extends Vue {
-  options: OPTIONS[] = [{
-    value: '选项1',
-    label: '黄金糕'
-  }, {
-    value: '选项2',
-    label: '双皮奶'
-  }, {
-    value: '选项3',
-    label: '蚵仔煎'
-  }, {
-    value: '选项4',
-    label: '龙须面'
-  }, {
-    value: '选项5',
-    label: '北京烤鸭'
-  }]
-
-  value = ''
-
-  // @Inject('reload') readonly reload!: string
-  @Inject() readonly reload!: RELOAD
-  @Prop() private msg!: string;
-
-  upThemeFun () {
-    this.$set(this.$i18n, 'locale', 'en-US')
-    setLocal('language', 'en-US')
-    setTheme('_high')
-    setFont('_large')
-    setLayout('_aside')
-    this.reload()
-  }
-
-  // created () {
-  // }
 }
 </script>
 <style scoped lang="scss">
-  .about {
+  .sos-main {
+    font-size: 0;
+    border: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("~@img/404/404.png");
+    background-position: calc(50vw - 240px) calc(50vh - 240px); /*这个是按从左往右，从上往下的百分比位置进行调整*/
+    background-size: 480px 480px; /*按比例缩放*/
+    /*background-size: 100px 100px;!*这个是按数值缩放*!*/
+    background-repeat: no-repeat; /*还有repeat-x,y等*/
   }
 </style>

@@ -18,14 +18,12 @@ export default class App extends Vue {
   @Provide() reload: RELOAD = this.reloadFun
 
   reloadFun () {
+    console.log('重新加载页面')
     this.isReloadAlive = false
     this.$nextTick(() => {
       this.isReloadAlive = true
     })
   }
-
-  // created () {
-  // }
 }
 </script>
 <style scoped lang="scss">

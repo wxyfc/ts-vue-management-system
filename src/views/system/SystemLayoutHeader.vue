@@ -7,7 +7,6 @@
 // @ts-nocheck
 
 import { Component, Mixins } from 'vue-property-decorator'
-import { setLocal } from '@function/browserActivity'
 import infoMixin from '@mixin/infoMixin'
 
 @Component

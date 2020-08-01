@@ -1,5 +1,5 @@
 <template>
-  <button type="button" :class="['ele-button-main','ele-button-'+type,,'ele-button-'+size,{'ele-button-disabled':isDisabled}]" @click.stop="$_iHandlerClickFun">
+  <button type="button" :class="['ele-button-main','ele-button-'+type,,'ele-button-'+size,{'ele-button-disabled':isDisabled},{'ele-button-long':long}]" @click.stop="$_iHandlerClickFun">
     <slot></slot>
     <EleIcon v-if="loading" i-class="el-icon-loading" class="ele-button-loading"></EleIcon>
   </button>
@@ -8,41 +8,43 @@
 /* eslint-disable */
 // @ts-nocheck
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
-import { setLayout, setFont, setTheme } from '@function/projectActivity'
 
 @Component({})
 export default class EleButton extends Vue {
   @Prop({
-    type: String, // 父组件传递给子组件的数据类型
-    required: false, // 是否必填
-    default: () => { // 默认值， 如果传入的是 Object，则要 default: ()=>({}) 参数为函数
-      return 'theme' // theme vice
+    type: String,
+    default: () => {
+      return '' // 主色 theme  副色 vice 默认不传淡白透明
     }
   }) type
 
   @Prop({
-    type: String, // 父组件传递给子组件的数据类型
-    required: false, // 是否必填
-    default: () => { // 默认值， 如果传入的是 Object，则要 default: ()=>({}) 参数为函数
-      return 'large' // large medium small
+    type: String,
+    default: () => {
+      return 'small' // 大 large  中 medium  小 small
     }
   }) size
 
   @Prop({
-    type: Boolean, // 父组件传递给子组件的数据类型
-    required: false, // 是否必填
-    default: () => { // 默认值， 如果传入的是 Object，则要 default: ()=>({}) 参数为函数
-      return false // large medium small
+    type: Boolean,
+    default: () => {
+      return false // 是否是加载中
     }
   }) loading
 
   @Prop({
-    type: Boolean, // 父组件传递给子组件的数据类型
-    required: false, // 是否必填
-    default: () => { // 默认值， 如果传入的是 Object，则要 default: ()=>({}) 参数为函数
+    type: Boolean,
+    default: () => {
       return false // large medium small
     }
   }) disabled
+
+  @Prop({
+    type: Boolean,
+    default: () => {
+      return false // large medium small
+    }
+  }) long
 
   isDisabled = false
 
@@ -60,22 +62,18 @@ export default class EleButton extends Vue {
       }, 1000)
     }
   }
-
-  // created () {
-  // }
 }
 </script>
 <style scoped lang="scss">
   .ele-button-main {
-    border: 0;
     border-radius: 5px;
     text-align: center;
+    cursor: pointer;
+    @include _border-box-shadow;
   }
 
   .ele-button- {
-    padding: 10px 16px !important;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    background: transparent;
+    background: rgba(255, 255, 255, .3);
   }
 
   .ele-button-theme {
@@ -88,19 +86,16 @@ export default class EleButton extends Vue {
 
   .ele-button-large {
     padding: 12px 20px !important;
-    border: 1px solid rgba(255, 255, 255, 0.6);
     @include _font-size('_content');
   }
 
   .ele-button-medium {
     padding: 10px 16px !important;
-    border: 1px solid rgba(255, 255, 255, 0.6);
     @include _font-size('_content');
   }
 
   .ele-button-small {
     padding: 7px 12px !important;
-    border: 1px solid rgba(255, 255, 255, 0.6);
     @include _font-size('_content');
   }
 
@@ -111,7 +106,12 @@ export default class EleButton extends Vue {
   .ele-button-disabled {
     cursor: no-drop;
     /*pointer-events: none;*/
+    // 会影响鼠标样式
     opacity: 0.6;
+  }
+
+  .ele-button-long {
+    width: 100%;
   }
 
 </style>

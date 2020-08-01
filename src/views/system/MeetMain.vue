@@ -21,7 +21,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { setLayout, setFont, setTheme } from '@function/projectActivity'
 
 @Component({
   components: {
@@ -31,17 +30,6 @@ import { setLayout, setFont, setTheme } from '@function/projectActivity'
   }
 })
 export default class MeetMain extends Vue {
-  setLayout (type: string, font: string, color: string) {
-    // @click="setLayout('_header','_large','_main')"
-    // @click="setLayout('_aside','_medium','_high')"
-    // @click="setLayout('_aside','_small','_dull')"
-    setLayout(type)
-    setFont(font)
-    setTheme(color)
-  }
-
-  // created () {
-  // }
 }
 </script>
 <style scoped lang="scss">

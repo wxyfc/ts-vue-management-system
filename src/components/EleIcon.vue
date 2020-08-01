@@ -1,13 +1,12 @@
 <template>
   <el-tooltip :effect="effect" :content="content" :placement="placement" :disabled="!content">
-    <i :class="[iClass,'ele-icon']" @click="iHandlerClickFun"></i>
+    <i :class="[iClass,'ele-icon']" @click.stop="iHandlerClickFun"></i>
   </el-tooltip>
 </template>
 <script lang="ts">
 /* eslint-disable */
 // @ts-nocheck
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import { setLayout, setFont, setTheme } from '@function/projectActivity'
 
 @Component({})
 export default class EleIcon extends Vue {
@@ -25,9 +24,6 @@ export default class EleIcon extends Vue {
   iHandlerClickFun () {
     this.$emit('click')
   }
-
-  // created () {
-  // }
 }
 </script>
 <style scoped lang="scss">
