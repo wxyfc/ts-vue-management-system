@@ -1,12 +1,12 @@
 <template>
-  <el-tooltip :effect="effect" :content="content" :placement="placement" :disabled="!content">
+  <el-tooltip :value="isShow" :effect="effect" :content="content" :placement="placement" :disabled="!content">
     <i :class="[iClass,'ele-icon']" @click.stop="iHandlerClickFun"></i>
   </el-tooltip>
 </template>
 <script lang="ts">
 /* eslint-disable */
 // @ts-nocheck
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 
 @Component({})
 export default class EleIcon extends Vue {
@@ -21,9 +21,28 @@ export default class EleIcon extends Vue {
   @Prop({ default: 'el-icon-star-off' }) 'i-class' !: string;
   @Prop({ default: 'bottom', required: false }) placement !: string; // !: string 不加也没问题
 
+  @Prop({
+    type: Boolean,
+    default: () => {
+      return false
+    }
+  }) show
+  isShow = false
+
+  @Watch('show', { immediate: true, deep: true })
+  onShowChanged (v) {
+    this.isShow = v
+    if (v) {
+      let t = setTimeout(() => {
+        this.isShow = false
+      }, 2000)
+    }
+  }
+
   iHandlerClickFun () {
     this.$emit('click')
   }
+
 }
 </script>
 <style scoped lang="scss">

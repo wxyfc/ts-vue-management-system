@@ -32,12 +32,14 @@ export function handlerWindowChange () {
   // 处理屏幕变化
   let systemScreenSize = 'large'
   let elementNavMenu = 'vertical'
+  let isCollapse = systemInfo().handlerIsCollapse
   if (window.innerWidth < 996) {
     systemScreenSize = 'small'
     elementNavMenu = 'horizontal'
+    isCollapse = false
   }
   // 使用vuex同步状态
-  setSystemInfo({ systemScreenSize, elementNavMenu })
+  setSystemInfo({ systemScreenSize, elementNavMenu, isCollapse })
   // store.dispatch('upVuex', { mutations: 'setSystemInfo', value: { screenSize, elementNavMenu, initPorject: true } })
 }
 

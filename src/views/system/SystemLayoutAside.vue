@@ -1,17 +1,21 @@
 <template>
   <div class="system-layout-aside-main">
-    <el-menu :default-active="$route.path" :mode="systemInfo.elementNavMenu" router :unique-opened="asideMenuUnique">
+    <el-menu :default-active="$route.path" :mode="systemInfo.elementNavMenu" router :unique-opened="asideMenuUnique" :collapse="asideMenuIsCollapse">
       <SystemRecursionMenu :menuRouters="menuRouters"></SystemRecursionMenu>
     </el-menu>
     <renderless-component v-if="systemInfo.elementNavMenu=='vertical'">
       <div class="system-layout-aside-setting">
-        <EleIcon i-class="el-icon-setting" :content="$t('menu.setting.adjust menu mode')" @click="menuDrawerVisible = true"></EleIcon>
+        <EleIcon show i-class="el-icon-setting" :content="$t('menu.setting.adjust menu mode')" @click="menuDrawerVisible = true"></EleIcon>
       </div>
-      <el-drawer :visible.sync="menuDrawerVisible" direction="btt" :modal-append-to-body="false" :withHeader="false" size="80px">
+      <el-drawer :visible.sync="menuDrawerVisible" direction="btt" :modal-append-to-body="false" :withHeader="false" size="auto">
         <div class="system-layout-aside-drawer-content">
           <div class="system-layout-aside-drawer-item">
             {{ $t('menu.setting.unique-opened') }}
             <el-switch v-model="asideMenuUnique"></el-switch>
+          </div>
+          <div class="system-layout-aside-drawer-item">
+            {{ $t('menu.setting.is-collapse') }}
+            <el-switch v-model="asideMenuIsCollapse"></el-switch>
           </div>
         </div>
       </el-drawer>
@@ -22,7 +26,7 @@
 <script lang="ts">
 /* eslint-disable */
 // @ts-nocheck
-import { Component, Mixins } from 'vue-property-decorator'
+import { Component, Mixins, Watch } from 'vue-property-decorator'
 import infoMixin from '@mixin/infoMixin'
 
 @Component({
@@ -41,6 +45,23 @@ export default class SystemLayoutAside extends Mixins(infoMixin) {
 
   menuDrawerVisible = false
   asideMenuUnique = false
+
+  get asideMenuIsCollapse (): Boolean {
+    return this.systemInfo.isCollapse
+  }
+
+  set asideMenuIsCollapse (isCollapse: Boolean) {
+    this.setSystemInfo({ isCollapse, handlerIsCollapse: isCollapse })
+  }
+
+  @Watch('asideMenuIsCollapse', { immediate: true, deep: true })
+  onCollapseChanged (isCollapse) {
+    if (isCollapse) {
+      document.body.style.setProperty('--aside-width', '65px')
+    } else {
+      document.body.style.setProperty('--aside-width', '200px')
+    }
+  }
 
   created () {
   }
@@ -79,10 +100,11 @@ export default class SystemLayoutAside extends Mixins(infoMixin) {
       width: 100%;
       height: 100%;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
+      flex-flow: column;
+      padding: 20px 0;
       .system-layout-aside-drawer-item {
-        display: inline-block;
         text-align: center;
       }
     }

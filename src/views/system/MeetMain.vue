@@ -34,7 +34,7 @@ export default class MeetMain extends Vue {
 </script>
 <style scoped lang="scss">
   $head-height: 60px;
-  $aside-width: 200px;
+  $aside-width: var(--aside-width, 200px);
   $aside-height: 70px;
   $nav-height: 50px;
   $layout-padding: 8px;

@@ -49,7 +49,7 @@ export default class EleButton extends Vue {
   isDisabled = false
 
   @Watch('disabled', { immediate: true, deep: true })
-  onRouteChanged (v) {
+  onDisabledChanged (v) {
     this.isDisabled = v
   }
 

@@ -27,6 +27,7 @@ const cn = {
     },
     setting: {
       'adjust menu mode': '调整菜单模式',
+      'is-collapse': '是否折叠',
       'unique-opened': '只展开一个子菜单'
     }
   },
