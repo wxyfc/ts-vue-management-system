@@ -1,6 +1,6 @@
 <template>
   <div class="async-demo-main ">
-    <EleButton @click="upThemeFun" loading>{{ $t('navbar.test') }}</EleButton>
+    <EleButton @click="upThemeFun" loading>{{ $t('context.button.sure') }}</EleButton>
   </div>
 </template>
 

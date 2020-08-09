@@ -84,6 +84,7 @@ export default class SystemLayoutAside extends Mixins(infoMixin) {
     height: 100%;
     width: 100%;
     position: relative;
+    /*overflow: auto;*/
     .el-drawer__wrapper {
       position: absolute;
     }

@@ -50,6 +50,7 @@ export default class MeetMain extends Vue {
   }
 
   .meet-main {
+    background: rgba(244, 244, 244, 0.5);
     .section {
       overflow: hidden;
     }
@@ -57,8 +58,9 @@ export default class MeetMain extends Vue {
       width: 100%;
       height: 100%;
       overflow: auto;
-      padding: 12px;
+      padding: 30px 18px;
       box-sizing: border-box;
+      background: #FFFFFF;
       @include _border-box-shadow;
     }
   }
@@ -73,7 +75,7 @@ export default class MeetMain extends Vue {
       @include _layout;
       .head {
         grid-area: head;
-        @include _background("_theme-color");
+        @include _background("_head-color");
         @include _color("_color");
         position: relative;
         z-index: 2;
@@ -140,7 +142,7 @@ export default class MeetMain extends Vue {
       .head {
         width: 100%;
         min-height: $head-height;
-        @include _background("_theme-color");
+        @include _background("_head-color");
         @include _color("_color");
       }
       .aside {

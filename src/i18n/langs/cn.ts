@@ -2,9 +2,15 @@ import zhLocale from 'element-ui/lib/locale/lang/zh-CN' // element-ui 国际化 
 const cn = {
   navbar: {
     title: {
-      close: '关闭'
-    },
-    test: '测试'
+      close: '关闭',
+      'set habit': '设置使用习惯',
+      'main theme': '默认主题',
+      'high theme': '高亮主题',
+      'dull theme': '暗沉主题',
+      'large fontsize': '较大字号',
+      'medium fontsize': '中等字号',
+      'small fontsize': '较小'
+    }
   },
   tip: {
     error: {
@@ -34,7 +40,11 @@ const cn = {
   label: {
     form: {
       account: '账户',
-      password: '密码'
+      password: '密码',
+      'select language': '选择语言',
+      'select theme': '选择主题',
+      'select fontsize': '选择字号',
+      'select layout': '选择布局'
     }
   },
   placeholder: {
@@ -45,7 +55,8 @@ const cn = {
   },
   context: {
     button: {
-      login: '登录'
+      login: '登录',
+      sure: '确定'
     }
   },
   ...zhLocale

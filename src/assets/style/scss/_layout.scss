@@ -1,10 +1,10 @@
 $layout: (
         _header:(
                 // 顶部沾满布局
-                _grid-template-areas: "head head" "aside  section" "aside  section"
+                _grid-template-areas: "head head" "aside section"
         ),
         _aside:(
                 // 侧边栏沾满布局
-                _grid-template-areas: "aside head" "aside  section" "aside  section"
+                _grid-template-areas: "aside head" "aside section"
         )
 )

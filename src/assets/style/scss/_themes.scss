@@ -1,23 +1,26 @@
 $themes: (
         _main:(
           // 默认主要布局
-                _theme-color:#545c64,
-                _vice-color:#ffd04b,
-                _color:#fff,
-                _border-color:#ffe6c2
+                _theme-color:#304156,
+                _head-color:#2e4e7e,
+                _vice-color:#409EFF,
+                _color:#FFFFFF,
+                _border-color:#8cc3ff
         ),
         _high:(
           // 高亮布局
-                _theme-color:#FFF,
-                _vice-color:#bcbcbc,
-                _color:#000,
+                _theme-color:#eaf4fc,
+                _head-color:#f3f9f1,
+                _vice-color:#bce2e8,
+                _color:#000000,
                 _border-color:#dcdcdc
         ),
         _dull:(
           // 暗沉布局
-                _theme-color:#304156,
-                _vice-color:#409EFF,
-                _color:#FFF,
-                _border-color:#8cc3ff
+                _theme-color:#545c64,
+                _head-color:#758a99,
+                _vice-color:#ffd04b,
+                _color:#FFFFFF,
+                _border-color:#ffe6c2
         )
 )
