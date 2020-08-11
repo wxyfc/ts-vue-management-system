@@ -16,19 +16,19 @@ export default function () {
     *  两种情况:
     *  1.没有加载过本地路由和菜单路由
     *  2.没有加载过异步路由
-    *  通过initPorject判断是否加载过第一种情况
+    *  通过initProject判断是否加载过第一种情况
     * */
     if (to.name === null) {
       // 没有路由则认为需要初始化路由
-      let { initPorject, asyncRouter } = systemInfo()
-      if (!initPorject) {
+      let { initProject, asyncRouter } = systemInfo()
+      if (!initProject) {
         // 没有进行过第一种情况
         console.log('没有进行过第一种情况')
         let localRoutes = initRouter(require("@json/localRouter.json"))
-        setSystemInfo({ initPorject: true, localRoutes }) // 加载第一种后进行initPorject标识true
+        setSystemInfo({ initProject: true, localRoutes }) // 加载第一种后进行initProject标识true
         router.addRoutes(localRoutes)
         next(to.path) // 进行跳转到要跳转的路由
-      } else if (initPorject && !asyncRouter) {
+      } else if (initProject && !asyncRouter) {
         // 进行过第一种情况 但是没进行异步路由
         console.log('进行过第一种情况但没有进行第二种情况')
         asyncRouterHandlerFun().then((asyncRoutes) => {

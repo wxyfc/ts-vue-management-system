@@ -1,6 +1,6 @@
 // @ts-nocheck
 // 总路由拦截
-import isInitPorject from './isInitPorject'
+import isInitProject from './isInitProject'
 import isInitRouter from './isInitRouter'
 import isCurrent from './isCurrent'
 import isExpire from './isExpire'
@@ -10,7 +10,7 @@ export default function () {
   *  是否初始化工程路由拦截
   *  没有进行过初始化的话会进行一些事件;如:localStorage存贮同步到vuex
   * */
-  isInitPorject()
+  isInitProject()
   /*
   *  是否初始化路由路由拦截
   *  没有进行过初始化路由,将初始化路由

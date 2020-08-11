@@ -7,10 +7,11 @@
 import router from '@router'
 import { systemInfo, setUserInfo, setOtherInfo, setBriefInfo, setSystemInfo } from '@function/handlerVuex'
 import { getLocal } from '@function/browserActivity'
+import { handlerWindowChange } from '@function/projectActivity'
 
 export default function () {
   router.beforeEach((to, from, next) => {
-    if (systemInfo().initPorject) {
+    if (systemInfo().initProject) {
       next()
     } else {
       const _userInfo = getLocal('userInfo', {})
@@ -30,11 +31,12 @@ export default function () {
         setSystemInfo({ ..._systemInfo })
       }
       console.log('重置标识')
-      setSystemInfo({ initPorject: false, asyncRouter: false })
+      setSystemInfo({ initProject: false, asyncRouter: false })
+      handlerWindowChange()
       next()
     }
   })
   // router.afterEach((to, from) => {
-  //   setSystemInfo({ initPorject: true })
+  //   setSystemInfo({ initProject: true })
   // });
 }

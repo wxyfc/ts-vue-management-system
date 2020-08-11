@@ -20,7 +20,7 @@ export default new Vuex.Store({
     otherInfo: {}, // 其他信息
     briefInfo: {}, // 一次性信息 不会保存在本地 刷新就会消失
     systemInfo: { // 系统信息
-      initPorject: false, // 是否初始化过项目
+      initProject: false, // 是否初始化过项目
       asyncRouter: false, // 是否加载过异步路由
       asyncRoutes: [], // 异步通过的路由 用来渲染左侧菜单栏的
       localRoutes: [], // 本地通过的路由 用来渲染左侧菜单栏的
@@ -169,7 +169,7 @@ export default new Vuex.Store({
       const stateList = ['userInfo', 'otherInfo', 'briefInfo', 'systemInfo']
       const resetSystemInfo = () => {
         state['systemInfo'] = {
-          initPorject: false, // 是否初始化过项目
+          initProject: false, // 是否初始化过项目
           asyncRouter: false, // 是否加载过异步路由
           asyncRoutes: [], // 异步通过的路由 用来渲染左侧菜单栏的
           localRoutes: [], // 本地通过的路由 用来渲染左侧菜单栏的

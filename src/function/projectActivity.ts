@@ -37,10 +37,13 @@ export function handlerWindowChange () {
     systemScreenSize = 'small'
     elementNavMenu = 'horizontal'
     isCollapse = false
+    console.log('小屏模式')
+  } else {
+    console.log('大屏模式')
   }
   // 使用vuex同步状态
   setSystemInfo({ systemScreenSize, elementNavMenu, isCollapse })
-  // store.dispatch('upVuex', { mutations: 'setSystemInfo', value: { screenSize, elementNavMenu, initPorject: true } })
+  // store.dispatch('upVuex', { mutations: 'setSystemInfo', value: { screenSize, elementNavMenu, initProject: true } })
 }
 
 export function monitorWindowChange () {
@@ -56,7 +59,7 @@ export function monitorWindowChange () {
   }, true)
 }
 
-export default function initPorject () {
+export default function initProject () {
   // console.clear()
   monitorWindowChange()
   setTheme(getLocal('system-theme', '_main'))
