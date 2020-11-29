@@ -2,7 +2,7 @@ const path = require ( 'path' )
 const resolve = dir => path.join ( __dirname, dir )
 const IS_PROD = [ 'production' ].includes ( process.env.NODE_ENV )
 module.exports = {
-  publicPath: './',
+  publicPath: process.env.VUE_APP_ROUTER_BASE,
   productionSourceMap: false,
   // 配置全局scss文件
   css: {

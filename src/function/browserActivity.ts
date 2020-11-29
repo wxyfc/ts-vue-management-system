@@ -1,7 +1,7 @@
 /* eslint-disable */
 // 操作浏览器的事件
-const projectName = process.env.VUE_APP_NAME
-const projectVersion = process.env.VUE_APP_VERSION
+const projectName = '_' + process.env.VUE_APP_NAME
+const projectVersion = '_' + process.env.VUE_APP_VERSION
 
 interface LOCALDATA {
   [key: string]: any;
