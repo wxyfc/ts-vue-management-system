@@ -7,7 +7,7 @@
       <SystemLayoutAside></SystemLayoutAside>
     </div>
     <div class="section">
-      <div class="nav">
+      <div class="nav" v-if="isNav=='true'">
         <SystemLayoutNav></SystemLayoutNav>
       </div>
       <div class="main">
@@ -21,6 +21,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import { styleProperty } from '@function/utilsFunction'
 
 @Component({
   components: {
@@ -30,13 +31,22 @@ import { Component, Vue } from 'vue-property-decorator'
   }
 })
 export default class MeetMain extends Vue {
+  isNav = process.env.VUE_APP_NAV_TAG
+
+  created () {
+    if (this.isNav === 'true') {
+      styleProperty('--nav-height', '50px')
+    } else {
+      styleProperty('--nav-height', '0px')
+    }
+  }
 }
 </script>
 <style scoped lang="scss">
   $head-height: 60px;
   $aside-width: var(--aside-width, 200px);
   $aside-height: 70px;
-  $nav-height: 50px;
+  $nav-height: var(--nav-height, 50px);
   $layout-padding: 8px;
   @mixin _layout-padding {
     box-sizing: border-box;

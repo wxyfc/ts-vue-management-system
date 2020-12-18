@@ -56,6 +56,7 @@ export default class SystemLayoutNav extends Mixins(infoMixin) {
   .system-layout-nav {
     display: inline-flex;
     align-items: center;
+    height: 100%;
     @include _font-size('_title');
     @include _border-box-shadow;
     @include _background("_theme-color");

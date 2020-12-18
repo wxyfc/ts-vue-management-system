@@ -25,12 +25,12 @@ export default function () {
         } else {
           // 时间过期
           console.log('时间过期')
-          nextError(next, '/login')
+          nextError(to, from, next, '/login')
         }
       } else {
         // 没有登录时间
         console.log('没有登录时间')
-        nextError(next, '/login')
+        nextError(to, from, next, '/login')
       }
     } else {
       // 如果没有配置则认为不需要拦截

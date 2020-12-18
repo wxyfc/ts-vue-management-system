@@ -50,11 +50,14 @@ module.exports = {
   },
   configureWebpack: config => {
     config.externals = {
-      // 'vue': 'Vue',
-      // 'vue-i18n': 'VueI18n',
-      // 'vue-router': 'VueRouter',
-      // 'vuex': 'Vuex',
-      // 'element-ui': 'ELEMENT',
+      'vue': 'Vue',
+      'vue-class-component': 'VueClassComponent',
+      'vue-i18n': 'VueI18n',
+      'vue-property-decorator': 'VuePropertyDecorator',
+      'vue-router': 'VueRouter',
+      'vuex': 'Vuex',
+      'element-ui': 'ELEMENT',
+      'axios': 'axios',
       // 'axios' : 'axios' ,
       // 'echarts' : 'echarts' ,
       // 'file-saver' : 'saveAs' ,
@@ -82,7 +85,7 @@ module.exports = {
     // } ,
     // open : false , // 是否打开浏览器
     // host : 'localhost' ,
-    // port : '8080' , // 代理断就
+    port: '9981', // 代理断就
     // https : false ,
     // hotOnly : false , // 热更新
     proxy: {

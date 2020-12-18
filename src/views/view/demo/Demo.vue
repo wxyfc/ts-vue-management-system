@@ -76,6 +76,14 @@ export default class Demo extends Mixins(infoMixin) {
 
   created () {
     //创建
+    axios.get('/user/12345')
+      .then(function(response) {
+        console.log(response.data);
+        console.log(response.status);
+        console.log(response.statusText);
+        console.log(response.headers);
+        console.log(response.config);
+      });
   }
 
   beforeMount () {

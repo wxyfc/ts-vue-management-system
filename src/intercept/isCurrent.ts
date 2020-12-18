@@ -19,7 +19,7 @@ export default function () {
         // 匹配的路由符合角色
         next()
       } else {
-        nextError(next)
+        nextError(to, from, next)
       }
     } else {
       // 没有配置路由

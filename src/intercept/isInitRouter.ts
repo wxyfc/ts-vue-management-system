@@ -38,7 +38,7 @@ export default function () {
         })
       } else {
         console.log('进行过第一第二还是没有')
-        nextError(next)
+        nextError(to, from, next)
       }
     } else {
       // 有路由不需要进行初始化路由

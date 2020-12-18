@@ -19,3 +19,7 @@ export function inspectType (obj: any) {
   }, toString: any = Object.prototype.toString
   return dataType[toString.call(obj)]
 }
+
+export function styleProperty (key, value) {
+  document.body.style.setProperty(key, value)
+}
