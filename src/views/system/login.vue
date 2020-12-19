@@ -20,6 +20,7 @@
 // @ts-nocheck
 import { Component, Prop, Inject, Mixins } from 'vue-property-decorator'
 import infoMixin from '@mixin/infoMixin'
+import initProject from '@function/projectActivity'
 
 @Component({})
 export default class Login extends Mixins(infoMixin) {
@@ -37,7 +38,8 @@ export default class Login extends Mixins(infoMixin) {
   }
 
   created () {
-    // this.clearVuex()
+    initProject()
+    this.clearVuex()
   }
 }
 </script>

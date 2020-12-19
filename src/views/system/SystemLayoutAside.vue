@@ -28,7 +28,7 @@
 // @ts-nocheck
 import { Component, Mixins, Watch } from 'vue-property-decorator'
 import infoMixin from '@mixin/infoMixin'
-import { styleProperty } from '@function/utilsFunction'
+import { setProperty } from '@function/utilsFunction'
 
 @Component({
   components: {
@@ -58,11 +58,9 @@ export default class SystemLayoutAside extends Mixins(infoMixin) {
   @Watch('asideMenuIsCollapse', { immediate: true, deep: true })
   onCollapseChanged (isCollapse) {
     if (isCollapse) {
-      styleProperty('--aside-width', '65px')
-      // document.body.style.setProperty('--aside-width', '65px')
+      setProperty('--aside-width', '65px')
     } else {
-      styleProperty('--aside-width', '200px')
-      // document.body.style.setProperty('--aside-width', '200px')
+      setProperty('--aside-width', '200px')
     }
   }
 

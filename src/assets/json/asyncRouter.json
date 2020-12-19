@@ -76,17 +76,5 @@
       }
     }
   ]
-} , {
-  "path" : "/not-menu" ,
-  "name" : "/not-menu" ,
-  "component" : "@system/MeetMain" ,
-  "redirect" : "/not-menu/set-habit" ,
-  "children" : [
-    {
-      "path" : "/not-menu/set-habit" ,
-      "name" : "setHabit" ,
-      "component" : "demo/setHabit"
-    }
-  ]
 }
 ]

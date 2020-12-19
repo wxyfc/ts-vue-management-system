@@ -4,28 +4,35 @@
 /* getBrowserLanguage getLocal setLocal removeLocal clearLocal */
 import { setLocal, getLocal } from './browserActivity'
 import { userInfo, otherInfo, briefInfo, systemInfo, setSystemInfo, clearVuex } from '@function/handlerVuex'
-
-// import store from '@store'
+import { setAttribute, setProperty } from '@function/utilsFunction'
 
 export function setTheme (systemTheme = '_main') {
   // 设置主题方法,只需传入想要设置的主题即可(_main,_high,_dull)
-  window.document.documentElement.setAttribute('data-theme', systemTheme)
+  setAttribute('data-theme', systemTheme)
   setLocal('system-theme', systemTheme)
-  // setSystemInfo({ systemTheme })
 }
 
 export function setFont (systemFontSize = '_small') {
   // 设置字体大小号方法(_large,_medium,_small)
-  window.document.documentElement.setAttribute('data-font', systemFontSize)
+  setAttribute('data-font', systemFontSize)
   setLocal('system-font', systemFontSize)
-  // setSystemInfo({ systemFontSize })
 }
 
 export function setLayout (systemLayout = '_header') {
   // 设置布局方法(_header,_aside)
-  window.document.documentElement.setAttribute('data-layout', systemLayout)
+  setAttribute('data-layout', systemLayout)
   setLocal('system-layout', systemLayout)
-  // setSystemInfo({ systemLayout })
+}
+
+export function setNav (systemNav = 'true') {
+  if (systemNav == 'true' || systemNav == true) {
+    setProperty('--nav-height', '50px')
+    setProperty('--nav-display', 'flex')
+  } else {
+    setProperty('--nav-height', '0px')
+    setProperty('--nav-display', 'none')
+  }
+  setLocal('system-nav', '' + systemNav)
 }
 
 export function handlerWindowChange () {
@@ -43,11 +50,11 @@ export function handlerWindowChange () {
   }
   // 使用vuex同步状态
   setSystemInfo({ systemScreenSize, elementNavMenu, isCollapse })
-  // store.dispatch('upVuex', { mutations: 'setSystemInfo', value: { screenSize, elementNavMenu, initProject: true } })
 }
 
 export function monitorWindowChange () {
   // 监听窗体变化
+  console.log('监听窗体变化')
   handlerWindowChange()
   window.addEventListener('resize', handlerWindowChange)
   window.addEventListener('beforeunload', () => {
@@ -59,14 +66,18 @@ export function monitorWindowChange () {
   }, true)
 }
 
-export default function initProject () {
+var initProject
+
+(initProject = function initProject () {
   // console.clear()
   monitorWindowChange()
-  setTheme(getLocal('system-theme', '_main'))
-  // setTheme(systemInfo().systemTheme)
-  setFont(getLocal('system-font', '_small'))
-  // setFont(systemInfo().systemFontSize)
-  setLayout(getLocal('system-layout', '_header'))
-  // setLayout(systemInfo().systemLayout)
+  setTheme(getLocal('system-theme', process.env.VUE_APP_TEMPLATE_THEME))
+  setFont(getLocal('system-font', process.env.VUE_APP_TEMPLATE_FONT))
+  setLayout(getLocal('system-layout', process.env.VUE_APP_TEMPLATE_LAYOUT))
+  setNav(getLocal('system-nav', process.env.VUE_APP_TEMPLATE_NAV_TAG))
+
   console.log('%c ts-vue-management_ %c init %c success', 'color:#409EFF;font-size:40px', 'color:#E6A23C;font-size:40px', 'color:#67C23A;font-size:40px')
-}
+  console.log('工程初始化')
+})()
+export default initProject
+

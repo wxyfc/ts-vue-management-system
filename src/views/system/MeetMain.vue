@@ -7,7 +7,7 @@
       <SystemLayoutAside></SystemLayoutAside>
     </div>
     <div class="section">
-      <div class="nav" v-if="isNav=='true'">
+      <div class="nav">
         <SystemLayoutNav></SystemLayoutNav>
       </div>
       <div class="main">
@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { styleProperty } from '@function/utilsFunction'
+// import { setProperty } from '@function/utilsFunction'
 
 @Component({
   components: {
@@ -31,14 +31,8 @@ import { styleProperty } from '@function/utilsFunction'
   }
 })
 export default class MeetMain extends Vue {
-  isNav = process.env.VUE_APP_NAV_TAG
-
   created () {
-    if (this.isNav === 'true') {
-      styleProperty('--nav-height', '50px')
-    } else {
-      styleProperty('--nav-height', '0px')
-    }
+    //
   }
 }
 </script>
@@ -47,6 +41,7 @@ export default class MeetMain extends Vue {
   $aside-width: var(--aside-width, 200px);
   $aside-height: 70px;
   $nav-height: var(--nav-height, 50px);
+  $nav-display: var(--nav-display, flex);
   $layout-padding: 8px;
   @mixin _layout-padding {
     box-sizing: border-box;
@@ -125,7 +120,7 @@ export default class MeetMain extends Vue {
           line-height: $nav-height - $layout-padding * 2;
           width: 100%;
           height: $nav-height;
-          display: flex;
+          display: $nav-display;
           align-items: center;
           overflow: hidden;
           @include _layout-padding;

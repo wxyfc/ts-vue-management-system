@@ -8,16 +8,17 @@ import ElementUI from 'element-ui'
 import i18n from './i18n'
 import router from './router'
 import store from './store'
-import initProject from '@function/projectActivity'
-import intercept from './intercept'
+// 工程初始化
+import '@function/projectActivity'
+// 路由拦截初始化
+import './intercept'
+// VUE注入初始化
+import './injection'
+// VUE组件初始化
 import './components'
 
 Vue.use(ElementUI, { size: 'mini', zIndex: 5233, i18n: (key: string, value: string) => i18n.t(key, value) })
 Vue.config.productionTip = false
-// 初始化项目
-initProject()
-// 路由拦截初始化
-intercept()
 
 new Vue({
   router,

@@ -1,8 +1,5 @@
 <template>
   <div class="demo-main ">
-    <EleButton @click="setLayout('_header','_large','_main')" size="large" type="vice">{{ $t('context.button.sure') }}</EleButton>
-    <EleButton @click="setLayout('_aside','_medium','_high')" size="medium" type="theme">{{ $t('context.button.sure') }}</EleButton>
-    <EleButton @click="setLayout('_aside','_small','_dull')" size="small" type="vice">{{ $t('context.button.sure') }}</EleButton>
   </div>
 </template>
 
@@ -11,11 +8,8 @@
 // @ts-nocheck
 
 import { Component, Prop, Mixins, Inject } from 'vue-property-decorator'
-import { setLocal } from '@function/browserActivity'
-import { setTheme, setFont, setLayout } from '@function/projectActivity'
 import infoMixin from '@mixin/infoMixin'
 
-type RELOAD = () => void;
 
 @Component({
   // components: {
@@ -30,15 +24,6 @@ type RELOAD = () => void;
   // }
 })
 export default class Demo extends Mixins(infoMixin) {
-
-  // @Inject('reload') readonly reload!: string  // 应该是两种写法
-  @Inject() readonly reload!: RELOAD
-
-  setLayout (type: string, font: string, color: string) {
-    setLayout(type)
-    setFont(font)
-    setTheme(color)
-  }
 
   // @Prop({
   //   type: Boolean, // 父组件传递给子组件的数据类型
@@ -61,29 +46,12 @@ export default class Demo extends Mixins(infoMixin) {
   //   this.rely = newRely
   // }
 
-  // upThemeFun () {
-  //   this.$set(this.$i18n, 'locale', 'en-US')
-  //   setLocal('language', 'en-US')
-  //   setTheme('_high')
-  //   setFont('_large')
-  //   setLayout('_aside')
-  //   this.reload()
-  // }
-
   beforeCreate () {
     //创建前
   }
 
   created () {
     //创建
-    axios.get('/user/12345')
-      .then(function(response) {
-        console.log(response.data);
-        console.log(response.status);
-        console.log(response.statusText);
-        console.log(response.headers);
-        console.log(response.config);
-      });
   }
 
   beforeMount () {
@@ -92,7 +60,6 @@ export default class Demo extends Mixins(infoMixin) {
 
   mounted () {
     //渲染
-    // alert(1)
   }
 
   activated () {

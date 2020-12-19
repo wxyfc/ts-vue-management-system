@@ -44,7 +44,8 @@ const cn = {
       'select language': '选择语言',
       'select theme': '选择主题',
       'select fontsize': '选择字号',
-      'select layout': '选择布局'
+      'select layout': '选择布局',
+      'select navigation': '额外导航'
     }
   },
   placeholder: {
@@ -58,6 +59,9 @@ const cn = {
       login: '登录',
       sure: '确定'
     }
+  },
+  'in a word': {
+    'sure set habit': '确认设置吗?点击确定将会帮您重新加载布局,这将会丢失您之前加载过的数据!'
   },
   ...zhLocale
 }

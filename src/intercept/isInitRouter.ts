@@ -23,14 +23,14 @@ export default function () {
       let { initProject, asyncRouter } = systemInfo()
       if (!initProject) {
         // 没有进行过第一种情况
-        console.log('没有进行过第一种情况')
+        console.log('没有进行过第一种情况,那么进行第一种情况')
         let localRoutes = initRouter(require("@json/localRouter.json"))
         setSystemInfo({ initProject: true, localRoutes }) // 加载第一种后进行initProject标识true
         router.addRoutes(localRoutes)
         next(to.path) // 进行跳转到要跳转的路由
       } else if (initProject && !asyncRouter) {
         // 进行过第一种情况 但是没进行异步路由
-        console.log('进行过第一种情况但没有进行第二种情况')
+        console.log('进行过第一种情况但没有进行第二种情况,那么进行第二种情况')
         asyncRouterHandlerFun().then((asyncRoutes) => {
           setSystemInfo({ asyncRouter: true, asyncRoutes }) // 加载第二种后进行asyncRouter标识true
           router.addRoutes(asyncRoutes)

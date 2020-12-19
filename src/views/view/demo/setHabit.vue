@@ -19,8 +19,22 @@
           </div>
         </div>
       </el-form-item>
+      <el-form-item :label="$t('label.form.select navigation')">
+        <div class="layout-examples">
+          <div v-for="(value,key) in SystemNavList" :key="key" :class="['layout-content','layout-section',value,{'layout-content-is':SystemNavSelect == key}]" @click="SystemNavSelect = key">
+            <div class="layout-examples-head"></div>
+            <div class="layout-examples-aside"></div>
+            <div class="layout-examples-section">
+              <template v-if="key=='true'">
+                <span class="layout-examples-nav" v-for="i in 3" :key="i"></span>
+              </template>
+            </div>
+          </div>
+        </div>
+      </el-form-item>
       <el-form-item>
-        <EleButton @click="upThemeFun" type="theme">{{ $t('context.button.sure') }}</EleButton>
+        {{ $t('in a word.sure set habit') }}
+        <EleButton type="theme" @click="upThemeFun">{{ $t('context.button.sure') }}</EleButton>
       </el-form-item>
     </el-form>
   </div>
@@ -32,7 +46,7 @@
 
 import { Component, Prop, Mixins, Inject } from 'vue-property-decorator'
 import { setLocal, getLocal } from '@function/browserActivity'
-import { setTheme, setFont, setLayout } from '@function/projectActivity'
+import { setTheme, setFont, setLayout, setNav } from '@function/projectActivity'
 import { LanguageChoice } from '@/i18n/langs'
 import infoMixin from '@mixin/infoMixin'
 
@@ -52,7 +66,7 @@ type RELOAD = () => void;
 })
 export default class setHabit extends Mixins(infoMixin) {
 
-  // @Inject('reload') readonly reload!: string  // 应该是两种写法
+  // @Inject('reload') readonly reload!: RELOAD  // 应该是两种写法 括号内 'reload' 如果不填 则默认以 readonly 后面的值 解析相同的名字
   @Inject() readonly reload!: RELOAD
   // 语言选择列表
   LanguageChoice = LanguageChoice
@@ -94,6 +108,15 @@ export default class setHabit extends Mixins(infoMixin) {
   // 布局选择
   SystemLayoutSelect = getLocal('system-layout', '_header')
 
+  // 布局选择列表
+  get SystemNavList (): Object {
+    return {
+      'true': this.SystemLayoutList[this.SystemLayoutSelect],
+      'false': this.SystemLayoutList[this.SystemLayoutSelect]
+    }
+  }
+
+  SystemNavSelect = getLocal('system-nav', 'true')
   // @Prop({
   //   type: Boolean, // 父组件传递给子组件的数据类型
   //   required: false, // 是否必填
@@ -121,48 +144,17 @@ export default class setHabit extends Mixins(infoMixin) {
     setTheme(this.SystemThemeSelect)
     setFont(this.SystemFontSizeSelect)
     setLayout(this.SystemLayoutSelect)
+    setNav(this.SystemNavSelect)
     this.reload()
-  }
-
-  beforeCreate () {
-    //创建前
   }
 
   created () {
     //创建
   }
 
-  beforeMount () {
-    //渲染前
-  }
-
   mounted () {
-    //渲染
   }
 
-  activated () {
-    //可见
-  }
-
-  deactivated () {
-    //隐藏
-  }
-
-  beforeUpdate () {
-    //更新前
-  }
-
-  updated () {
-    //更新
-  }
-
-  beforeDestroy () {
-    //销毁前
-  }
-
-  destroyed () {
-    //销毁
-  }
 }
 </script>
 <style scoped lang="scss">
@@ -197,6 +189,9 @@ export default class setHabit extends Mixins(infoMixin) {
     .layout-aside {
       grid-template-areas: "aside head" "aside section"
     }
+    .layout-section {
+      margin-right: 40px;
+    }
     /deep/ .layout-examples-head {
       grid-area: head;
       @include _background("_head-color");
@@ -204,6 +199,21 @@ export default class setHabit extends Mixins(infoMixin) {
     /deep/ .layout-examples-aside {
       grid-area: aside;
       @include _background("_theme-color");
+    }
+    /deep/ .layout-examples-section {
+      grid-area: section;
+      background: #fff;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      .layout-examples-nav {
+        width: 14px;
+        height: 7px;
+        margin: 1px 0 0 2px;
+        border-radius: 2px;
+        display: inline-block;
+        @include _background("_theme-color");
+      }
     }
   }
 </style>

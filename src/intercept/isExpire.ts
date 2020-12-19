@@ -11,7 +11,6 @@ import nextError from './nextError'
 
 export default function () {
   router.beforeEach((to, from, next) => {
-    let user = userInfo()[process.env.VUE_APP_USER_IDENTITY_KEY]
     if (to.meta && to.meta.role && to.meta.role.length) {
       // 如果路由配置了角色 那么认为该路由需要拦截
       let lastTime = userInfo().lastTime

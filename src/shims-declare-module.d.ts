@@ -7,4 +7,5 @@ declare module '@view/*';
 declare module '@mixin/*';
 declare module '@store';
 declare module '@router';
+declare module 'axios';
 

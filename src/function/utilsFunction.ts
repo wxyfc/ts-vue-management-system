@@ -20,6 +20,39 @@ export function inspectType (obj: any) {
   return dataType[toString.call(obj)]
 }
 
-export function styleProperty (key, value) {
-  document.body.style.setProperty(key, value)
+export function setProperty (key, value) {
+  window.document.body.style.setProperty(key, value)
 }
+
+export function setAttribute (key, value) {
+  window.document.documentElement.setAttribute(key, value)
+}
+
+export function formData (item) {
+  //转换成表单
+  const form = new FormData()
+  for (let key in item) {
+    form.append(key, item[key])
+  }
+  // 对象用in的话是key
+  // 数组用of的情况下是原值
+  const entries = form.entries()
+  for (let entry of entries) {
+    console.log(entry[0], entry[1])
+  }
+  // for (; ;) {
+  //   let i = entries.next();
+  //   if (i.done) break;
+  // }
+  return form
+}
+
+// // 自执行函数写法
+// (function (text) {
+//   console.log(text)
+// }('我传入的值'))
+
+// 只要前面加操作符就可以
+// !function () {
+//
+// }()

@@ -11,5 +11,17 @@
   "path" : "/404" ,
   "name" : "/404" ,
   "component" : "@system/404"
+} , {
+  "path" : "/not-menu" ,
+  "name" : "/not-menu" ,
+  "component" : "@system/MeetMain" ,
+  "redirect" : "/set-habit" ,
+  "children" : [
+    {
+      "path" : "/set-habit" ,
+      "name" : "setHabit" ,
+      "component" : "demo/setHabit"
+    }
+  ]
 }
 ]
