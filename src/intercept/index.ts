@@ -4,6 +4,7 @@ import isInitProject from './isInitProject'
 import isInitRouter from './isInitRouter'
 import isCurrent from './isCurrent'
 import isExpire from './isExpire'
+import routerError from './routerError'
 
 console.log('路由拦截初始化')
 /*
@@ -26,3 +27,7 @@ isExpire()
 *  通过vuex中存贮的角色进行判断该角色的路由是否符合
 * */
 isCurrent()
+/*
+* 路由错误处理
+* */
+routerError()

@@ -3,6 +3,7 @@
 
 import { Component, Vue } from 'vue-property-decorator'
 import formRules from '@function/formRules'
+import { JSONCopy } from '@function/utilsFunction'
 
 import {
   userInfo,
@@ -131,7 +132,5 @@ export default class InfoMixin extends Vue {
 
   formRules = formRules
 
-  JSONCopy (v: any) {
-    return JSON.parse(JSON.stringify(v))
-  }
+  JSONCopy = JSONCopy
 }

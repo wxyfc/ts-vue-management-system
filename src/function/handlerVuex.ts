@@ -1,25 +1,26 @@
 // @ts-nocheck
 // 处理vuex
 import store from '@store'
+import { JSONCopy } from '@function/utilsFunction'
 
 // 获取用户信息
 export function userInfo () {
-  return JSON.parse(JSON.stringify(store.getters.getUserInfo))
+  return JSONCopy(store.getters.getUserInfo)
 }
 
 // 获取其他信息
 export function otherInfo () {
-  return JSON.parse(JSON.stringify(store.getters.getOtherInfo))
+  return JSONCopy(store.getters.getOtherInfo)
 }
 
 // 获取一次性信息
 export function briefInfo () {
-  return JSON.parse(JSON.stringify(store.getters.getBriefInfo))
+  return JSONCopy(store.getters.getBriefInfo)
 }
 
 // 获取系统信息
 export function systemInfo () {
-  return JSON.parse(JSON.stringify(store.getters.getSystemInfo))
+  return JSONCopy(store.getters.getSystemInfo)
 }
 
 // 设置用户的信息

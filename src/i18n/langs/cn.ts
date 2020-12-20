@@ -39,7 +39,7 @@ const cn = {
   },
   label: {
     form: {
-      account: '账户',
+      account: '账号',
       password: '密码',
       'select language': '选择语言',
       'select theme': '选择主题',
@@ -50,14 +50,16 @@ const cn = {
   },
   placeholder: {
     form: {
-      account: '请输入账户',
+      account: '请输入账号',
       password: '请输入密码'
     }
   },
   context: {
     button: {
       login: '登录',
-      sure: '确定'
+      sure: '确定',
+      'login title': '后台管理'
+
     }
   },
   'in a word': {

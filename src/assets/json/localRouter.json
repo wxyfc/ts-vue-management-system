@@ -20,7 +20,7 @@
     {
       "path" : "/set-habit" ,
       "name" : "setHabit" ,
-      "component" : "demo/setHabit"
+      "component" : "@system/setHabit"
     }
   ]
 }

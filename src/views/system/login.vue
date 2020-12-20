@@ -1,10 +1,10 @@
 <template>
   <div class="login-mian">
     <div class="login-content">
-      <p class="login-content-title-p">{{ $t('context.button.login') }}</p>
+      <p class="login-content-title-p">{{ $t('context.button.login title') }}</p>
       <el-form ref="login-form" :model="loginForm" label-width="80px" label-position="top" class="login-content-form" @keyup.enter.native="loginFun('login-form')">
         <el-form-item :label="$t('label.form.account')" prop="account" :rules="formRules.inputLengthRule()">
-          <el-input v-model="loginForm.account" :placeholder="$t('placeholder.form.password')" size="medium"></el-input>
+          <el-input v-model="loginForm.account" :placeholder="$t('placeholder.form.account')" size="medium"></el-input>
         </el-form-item>
         <el-form-item :label="$t('label.form.password')" prop="password" :rules="formRules.inputLengthRule()">
           <el-input v-model="loginForm.password" :placeholder="$t('placeholder.form.password')" size="medium" show-password></el-input>
@@ -38,8 +38,8 @@ export default class Login extends Mixins(infoMixin) {
   }
 
   created () {
-    initProject()
-    this.clearVuex()
+    // initProject()
+    // this.clearVuex()
   }
 }
 </script>

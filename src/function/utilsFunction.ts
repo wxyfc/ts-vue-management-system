@@ -47,6 +47,18 @@ export function formData (item) {
   return form
 }
 
+export function JSONCopy (v) {
+  return JSON.parse(JSON.stringify(v))
+}
+
+export function only (text = '') {
+  let diff = 0
+  do
+    diff = Math.floor(Math.random() * 10000)
+  while ( diff < 1000 )
+  return text + new Date().getTime() + diff
+}
+
 // // 自执行函数写法
 // (function (text) {
 //   console.log(text)
