@@ -26,7 +26,7 @@
 /* eslint-disable */
 // @ts-nocheck
 import { Component, Mixins, Prop } from 'vue-property-decorator'
-import infoMixin from '@mixin/infoMixin'
+import infoMixin from '@mixin/infoMixin.ts'
 
 @Component({
   name: 'SystemRecursionMenu'

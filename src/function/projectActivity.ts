@@ -2,9 +2,9 @@
 // @ts-nocheck
 // 操作项目的事件
 /* getBrowserLanguage getLocal setLocal removeLocal clearLocal */
-import { setLocal, getLocal } from './browserActivity'
-import { userInfo, otherInfo, briefInfo, systemInfo, setSystemInfo, clearVuex } from '@function/handlerVuex'
-import { setAttribute, setProperty } from '@function/utilsFunction'
+import { setLocal, getLocal } from './browserActivity.ts'
+import { userInfo, otherInfo, briefInfo, systemInfo, setSystemInfo, clearVuex } from '@function/handlerVuex.ts'
+import { setAttribute, setProperty } from '@function/utilsFunction.ts'
 
 export function setTheme (systemTheme = '_main') {
   // 设置主题方法,只需传入想要设置的主题即可(_main,_high,_dull)

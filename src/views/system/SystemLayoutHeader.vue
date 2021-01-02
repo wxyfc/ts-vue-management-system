@@ -7,7 +7,7 @@
 // @ts-nocheck
 
 import { Component, Mixins } from 'vue-property-decorator'
-import infoMixin from '@mixin/infoMixin'
+import infoMixin from '@mixin/infoMixin.ts'
 
 @Component
 export default class SystemLayoutHeader extends Mixins(infoMixin) {

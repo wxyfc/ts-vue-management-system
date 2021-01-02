@@ -1,10 +1,10 @@
 // @ts-nocheck
 // 总路由拦截
-import isInitProject from './isInitProject'
-import isInitRouter from './isInitRouter'
-import isCurrent from './isCurrent'
-import isExpire from './isExpire'
-import routerError from './routerError'
+import isInitProject from './isInitProject.ts'
+import isInitRouter from './isInitRouter.ts'
+import isCurrent from './isCurrent.ts'
+import isExpire from './isExpire.ts'
+import routerError from './routerError.ts'
 
 console.log('路由拦截初始化')
 /*

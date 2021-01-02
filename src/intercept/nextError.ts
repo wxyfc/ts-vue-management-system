@@ -1,6 +1,6 @@
 /* eslint-disable */
 // @ts-nocheck
-import i18n from '@/i18n'
+import i18n from '@/i18n/index.ts'
 import { Message } from 'element-ui'
 
 export default function (to, from, next: Function, path = '/404') {

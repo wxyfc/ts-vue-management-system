@@ -14,7 +14,7 @@
 // @ts-nocheck
 import { Component, Mixins, Watch } from 'vue-property-decorator'
 import { RouteConfig } from 'vue-router'
-import infoMixin from '@mixin/infoMixin'
+import infoMixin from '@mixin/infoMixin.ts'
 
 @Component({
   components: {}

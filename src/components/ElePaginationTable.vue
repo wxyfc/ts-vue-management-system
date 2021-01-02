@@ -32,7 +32,7 @@
 /* eslint-disable */
 // @ts-nocheck
 import { Component, Prop, Vue, Watch, PropSync, Emit, Ref } from 'vue-property-decorator'
-import { only } from '@function/utilsFunction'
+import { only } from '@function/utilsFunction.ts'
 
 @Component({
   name: 'ElePaginationTable',
@@ -203,7 +203,7 @@ export default class ElePaginationTable extends Vue {
     this.emitPageChange()
   }
 
-  created () {
+  mounted () {
     this.emitPageChange()
   }
 }

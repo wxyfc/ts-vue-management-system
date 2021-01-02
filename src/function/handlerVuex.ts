@@ -1,7 +1,7 @@
 // @ts-nocheck
 // 处理vuex
-import store from '@store'
-import { JSONCopy } from '@function/utilsFunction'
+import store from '@store/index.ts'
+import { JSONCopy } from '@function/utilsFunction.ts'
 
 // 获取用户信息
 export function userInfo () {

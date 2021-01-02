@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 import Vue from 'vue'
-import Fragment from './other/vue-fragment'
+import Fragment from './other/vue-fragment.js'
 
 Vue.use(Fragment.Plugin)
 

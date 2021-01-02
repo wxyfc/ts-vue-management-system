@@ -1,5 +1,6 @@
 <template>
   <div class="demo-main ">
+    <ElFormInput></ElFormInput>
   </div>
 </template>
 
@@ -9,12 +10,13 @@
 
 import { Component, Prop, Mixins, Inject } from 'vue-property-decorator'
 import infoMixin from '@mixin/infoMixin.ts'
+import { ElFormInput } from './ElDragFormComponents.ts'
 
 
 @Component({
-  // components: {
-  //   SystemRecursionMenu: () => import('./SystemRecursionMenu'),
-  // },
+  components: {
+    ElFormInput
+  },
   // computed: { // vue 原生写法也可以在此使用
   //   menuRouters: {
   //     get () {
@@ -23,7 +25,7 @@ import infoMixin from '@mixin/infoMixin.ts'
   //   }
   // }
 })
-export default class Demo extends Mixins(infoMixin) {
+export default class ElDragFormViewer extends Mixins(infoMixin) {
 
   // @Prop({
   //   type: Boolean, // 父组件传递给子组件的数据类型
@@ -88,6 +90,5 @@ export default class Demo extends Mixins(infoMixin) {
 }
 </script>
 <style scoped lang="scss">
-  .demo-main {
-  }
+
 </style>

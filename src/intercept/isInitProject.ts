@@ -4,10 +4,10 @@
 *  是否初始化工程路由拦截
 *  没有进行过初始化的话会进行一些事件;如:localStorage存贮同步到vuex
 * */
-import router from '@router'
-import { systemInfo, setUserInfo, setOtherInfo, setBriefInfo, setSystemInfo } from '@function/handlerVuex'
-import { getLocal } from '@function/browserActivity'
-import { handlerWindowChange } from '@function/projectActivity'
+import router from '@router/index.ts'
+import { systemInfo, setUserInfo, setOtherInfo, setBriefInfo, setSystemInfo } from '@function/handlerVuex.ts'
+import { getLocal } from '@function/browserActivity.ts'
+import { handlerWindowChange } from '@function/projectActivity.ts'
 
 export default function () {
   router.beforeEach((to, from, next) => {

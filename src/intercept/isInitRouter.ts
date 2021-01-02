@@ -4,10 +4,10 @@
 *  是否初始化路由路由拦截
 *  没有进行过初始化路由,将同步路由
 * */
-import router from '@router'
-import { systemInfo, setSystemInfo } from '@function/handlerVuex'
-import initRouter from '@function/initRouter'
-import nextError from './nextError'
+import router from '@router/index.ts'
+import { systemInfo, setSystemInfo } from '@function/handlerVuex.ts'
+import initRouter from '@function/initRouter.ts'
+import nextError from './nextError.ts'
 
 export default function () {
   router.beforeEach((to, from, next) => {

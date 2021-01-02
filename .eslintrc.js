@@ -21,5 +21,6 @@ module.exports = {
     'no-undefined': 'off',//不能使用undefined
     'no-unused-vars': 0,
     'dot-notation': 0,//避免不必要的方括号
+    // '@typescript-eslint/no-explicit-any': [ 'off' ]
   }
 }

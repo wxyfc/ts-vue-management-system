@@ -1,6 +1,6 @@
 /* eslint-disable */
 // @ts-nocheck
-import { formData } from './utilsFunction'
+import { formData } from './utilsFunction.ts'
 
 /*
 * Content-Type: application/json ： 请求体中的数据会以json字符串的形式发送到后端

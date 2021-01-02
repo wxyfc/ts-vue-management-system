@@ -19,8 +19,8 @@
 /* eslint-disable */
 // @ts-nocheck
 import { Component, Prop, Inject, Mixins } from 'vue-property-decorator'
-import infoMixin from '@mixin/infoMixin'
-import initProject from '@function/projectActivity'
+import infoMixin from '@mixin/infoMixin.ts'
+import initProject from '@function/projectActivity.ts'
 
 @Component({})
 export default class Login extends Mixins(infoMixin) {

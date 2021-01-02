@@ -27,6 +27,10 @@
         width="180">
       </el-table-column>
     </ElePaginationTable>
+    {{ form }}
+    <el-form ref="form" :model="form" label-width="80px">
+      <ElFormInput label="测试" v-model="form.test" placeholder="测哇"></ElFormInput>
+    </el-form>
   </div>
 </template>
 
@@ -35,10 +39,17 @@
 // @ts-nocheck
 
 import { Component, Prop, Mixins } from 'vue-property-decorator'
-import infoMixin from '@mixin/infoMixin'
+import infoMixin from '@mixin/infoMixin.ts'
+import { ElFormInput } from '@components/ElDragFormComponents.ts'
 
-@Component
+@Component({
+  components: {
+    ElFormInput
+  }
+})
 export default class AsyncDemo extends Mixins(infoMixin) {
+  form = {}
+
   pageChangeFun (pageData) {
     console.log('pageData返回的emit', pageData)
   }

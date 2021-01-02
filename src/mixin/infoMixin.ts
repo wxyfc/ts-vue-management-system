@@ -2,8 +2,8 @@
 // @ts-nocheck
 
 import { Component, Vue } from 'vue-property-decorator'
-import formRules from '@function/formRules'
-import { JSONCopy } from '@function/utilsFunction'
+import formRules from '@function/formRules.ts'
+import { JSONCopy } from '@function/utilsFunction.ts'
 
 import {
   userInfo,
@@ -19,7 +19,7 @@ import {
   deleteBriefInfo,
   setSystemInfo,
   clearVuex
-} from '@function/handlerVuex'
+} from '@function/handlerVuex.ts'
 
 @Component
 export default class InfoMixin extends Vue {

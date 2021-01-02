@@ -1,6 +1,6 @@
 /* eslint-disable */
 // @ts-nocheck
-import i18n from '@/i18n'
+import i18n from '@/i18n/index.ts'
 
 const err = (t) => {
   return new Error(t)

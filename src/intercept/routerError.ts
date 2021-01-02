@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 import VueRouter from 'vue-router'
-import router from '@router'
+import router from '@router/index.ts'
 
 export default function () {
   const routerMethods = ['push', 'replace']

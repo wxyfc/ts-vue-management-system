@@ -27,8 +27,8 @@
 /* eslint-disable */
 // @ts-nocheck
 import { Component, Mixins, Watch } from 'vue-property-decorator'
-import infoMixin from '@mixin/infoMixin'
-import { setProperty } from '@function/utilsFunction'
+import infoMixin from '@mixin/infoMixin.ts'
+import { setProperty } from '@function/utilsFunction.ts'
 
 @Component({
   components: {
