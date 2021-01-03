@@ -16,6 +16,8 @@ import './intercept/index.ts'
 import './injection/index.ts'
 // VUE组件初始化
 import './components/index.ts'
+// VUE组件初始化
+import './directive/index.ts'
 
 Vue.use(ElementUI, { size: 'mini', zIndex: 5233, i18n: (key: string, value: string) => i18n.t(key, value) })
 Vue.config.productionTip = false

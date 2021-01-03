@@ -2,7 +2,7 @@
   {
     "path" : "/" ,
     "name" : "/" ,
-    "redirect" : "/menu"
+    "redirect" : "/async"
   } , {
   "path" : "/login" ,
   "name" : "/login" ,

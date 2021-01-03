@@ -84,7 +84,7 @@ export default class MeetMain extends Vue {
         @include _color("_color");
         position: relative;
         z-index: 2;
-        &::before {
+        /*&::before {
           content: '';
           z-index: 1;
           position: absolute;
@@ -94,14 +94,14 @@ export default class MeetMain extends Vue {
           height: 1px;
           @include _border-box-shadow;
           // @include _background("_border-color");
-        }
+        }*/
       }
       .aside {
         grid-area: aside;
         @include _background("_theme-color");
         position: relative;
         z-index: 2;
-        &::before {
+        /*&::before {
           content: '';
           z-index: 1;
           position: absolute;
@@ -111,7 +111,7 @@ export default class MeetMain extends Vue {
           height: calc(100% - #{$head-height});
           @include _border-box-shadow;
           // @include _background("_border-color");
-        }
+        }*/
       }
       .section {
         grid-area: section;

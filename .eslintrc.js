@@ -19,8 +19,8 @@ module.exports = {
     'no-undef': 'off',//不能有未定义的变量
     'no-undef-init': 'off',//变量初始化时不能直接给它赋值为undefined
     'no-undefined': 'off',//不能使用undefined
-    'no-unused-vars': 0,
+    '@typescript-eslint/no-unused-vars': 'off',
     'dot-notation': 0,//避免不必要的方括号
-    // '@typescript-eslint/no-explicit-any': [ 'off' ]
+    '@typescript-eslint/no-explicit-any': [ 'off' ],
   }
 }

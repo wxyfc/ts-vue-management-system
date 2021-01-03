@@ -1,6 +1,12 @@
 <template>
-  <div class="demo-main ">
-    <ElFormInput></ElFormInput>
+  <div class="el-drag-form-handler-main ">
+    <div class="test" v-drag-inserted="'test'"></div>
+    <div id="test" class="test"></div>
+    <el-form ref="form" :model="form" label-width="120px">
+      <ElFormInput label="测试" v-model="form.test" placeholder="测哇"></ElFormInput>
+      <ElFormSelect label="请测试" v-model="form.test1" placeholder="请测哇"></ElFormSelect>
+      <ElFormDatePicker label="请测试1" v-model="form.test1" placeholder="请测哇1" type="date"></ElFormDatePicker>
+    </el-form>
   </div>
 </template>
 
@@ -10,12 +16,13 @@
 
 import { Component, Prop, Mixins, Inject } from 'vue-property-decorator'
 import infoMixin from '@mixin/infoMixin.ts'
-import { ElFormInput } from './ElDragFormComponents.ts'
-
+import { ElFormInput, ElFormSelect, ElFormDatePicker } from '@components/ElDragFormComponents.ts'
 
 @Component({
   components: {
-    ElFormInput
+    ElFormInput,
+    ElFormSelect,
+    ElFormDatePicker
   },
   // computed: { // vue 原生写法也可以在此使用
   //   menuRouters: {
@@ -26,7 +33,7 @@ import { ElFormInput } from './ElDragFormComponents.ts'
   // }
 })
 export default class ElDragFormHandler extends Mixins(infoMixin) {
-
+  form = {}
   // @Prop({
   //   type: Boolean, // 父组件传递给子组件的数据类型
   //   required: false, // 是否必填
@@ -90,5 +97,15 @@ export default class ElDragFormHandler extends Mixins(infoMixin) {
 }
 </script>
 <style scoped lang="scss">
-
+  .el-drag-form-handler-main {
+    .test {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      background: #ffd04b;
+    }
+    /deep/ .el-input {
+      width: 220px;
+    }
+  }
 </style>
