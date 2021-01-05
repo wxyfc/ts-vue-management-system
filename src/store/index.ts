@@ -3,7 +3,7 @@
 
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { inspectType } from '@function/utilsFunction.ts'
+import { inspectType } from '@/function/utilsFunction.ts'
 
 Vue.use(Vuex)
 

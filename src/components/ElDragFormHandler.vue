@@ -1,11 +1,21 @@
 <template>
   <div class="el-drag-form-handler-main ">
-    <div class="test" v-drag-inserted="'test'"></div>
-    <div id="test" class="test"></div>
     <el-form ref="form" :model="form" label-width="120px">
-      <ElFormInput label="测试" v-model="form.test" placeholder="测哇"></ElFormInput>
-      <ElFormSelect label="请测试" v-model="form.test1" placeholder="请测哇"></ElFormSelect>
-      <ElFormDatePicker label="请测试1" v-model="form.test1" placeholder="请测哇1" type="date"></ElFormDatePicker>
+      <div v-drag-inserted:ElFormInput@test="handlerDrag">
+        <ElFormInput label="测试输入框" v-model="form.input" placeholder="请输入内容"></ElFormInput>
+      </div>
+      <ElFormSelect label="测试选择器" v-model="form.select" placeholder="请选择"></ElFormSelect>
+      <ElFormDatePicker label="测试日期选择器" v-model="form.date" placeholder="请选择日期" type="date"></ElFormDatePicker>
+      <ElFormInput label="测试输入框" v-model="form.input" placeholder="请输入内容"></ElFormInput>
+      <ElFormSelect label="测试选择器" v-model="form.select" placeholder="请选择"></ElFormSelect>
+      <div id="test" class="container"></div>
+      <ElFormDatePicker label="测试日期选择器" v-model="form.date" placeholder="请选择日期" type="date"></ElFormDatePicker>
+      <ElFormInput label="测试输入框" v-model="form.input" placeholder="请输入内容"></ElFormInput>
+      <ElFormSelect label="测试选择器" v-model="form.select" placeholder="请选择"></ElFormSelect>
+      <ElFormDatePicker label="测试日期选择器" v-model="form.date" placeholder="请选择日期" type="date"></ElFormDatePicker>
+      <ElFormInput label="测试输入框" v-model="form.input" placeholder="请输入内容"></ElFormInput>
+      <ElFormSelect label="测试选择器" v-model="form.select" placeholder="请选择"></ElFormSelect>
+      <ElFormDatePicker label="测试日期选择器" v-model="form.date" placeholder="请选择日期" type="date"></ElFormDatePicker>
     </el-form>
   </div>
 </template>
@@ -15,8 +25,8 @@
 // @ts-nocheck
 
 import { Component, Prop, Mixins, Inject } from 'vue-property-decorator'
-import infoMixin from '@mixin/infoMixin.ts'
-import { ElFormInput, ElFormSelect, ElFormDatePicker } from '@components/ElDragFormComponents.ts'
+import infoMixin from '@/mixin/infoMixin.ts'
+import { ElFormInput, ElFormSelect, ElFormDatePicker } from '@/components/ElDragFormComponents.ts'
 
 @Component({
   components: {
@@ -54,6 +64,9 @@ export default class ElDragFormHandler extends Mixins(infoMixin) {
   // set testComputed (newRely: Boolean) {
   //   this.rely = newRely
   // }
+  handlerDrag (v) {
+    console.log(v)
+  }
 
   beforeCreate () {
     //创建前
@@ -98,11 +111,12 @@ export default class ElDragFormHandler extends Mixins(infoMixin) {
 </script>
 <style scoped lang="scss">
   .el-drag-form-handler-main {
-    .test {
-      position: relative;
-      width: 220px;
-      height: 220px;
-      background: #ffd04b;
+    .container {
+      width: 250px;
+      height: 250px;
+      margin-left: 250px;
+      margin-top: 20px;
+      background: #89ff61;
     }
     /deep/ .el-input {
       width: 220px;

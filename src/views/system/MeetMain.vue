@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-// import { setProperty } from '@function/utilsFunction'
+// import { setProperty } from '@/function/utilsFunction'
 
 @Component({
   components: {

@@ -19,8 +19,8 @@
 /* eslint-disable */
 // @ts-nocheck
 import { Component, Prop, Inject, Mixins } from 'vue-property-decorator'
-import infoMixin from '@mixin/infoMixin.ts'
-import initProject from '@function/projectActivity.ts'
+import infoMixin from '@/mixin/infoMixin.ts'
+import initProject from '@/function/projectActivity.ts'
 
 @Component({})
 export default class Login extends Mixins(infoMixin) {
@@ -32,7 +32,7 @@ export default class Login extends Mixins(infoMixin) {
       if (valid) {
         this.setUserInfo({ [process.env.VUE_APP_USER_IDENTITY_KEY]: [1111] })
         this.lastUserInfo()
-        this.$router.push('/menu')
+        this.$router.push('/async')
       }
     })
   }

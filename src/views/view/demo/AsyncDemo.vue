@@ -36,11 +36,11 @@
 // @ts-nocheck
 
 import { Component, Prop, Mixins } from 'vue-property-decorator'
-import infoMixin from '@mixin/infoMixin.ts'
+import infoMixin from '@/mixin/infoMixin.ts'
 
 @Component({
   components: {
-    ElDragFormHandler: () => import('@components/ElDragFormHandler.vue')
+    ElDragFormHandler: () => import('@/components/ElDragFormHandler.vue')
   }
 })
 export default class AsyncDemo extends Mixins(infoMixin) {

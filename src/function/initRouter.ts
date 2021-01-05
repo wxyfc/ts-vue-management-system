@@ -1,8 +1,8 @@
 /* eslint-disable */
 // @ts-nocheck
 import { RouteConfig } from 'vue-router'
-import { inspectType } from '@function/utilsFunction.ts'
-import { userInfo } from '@function/handlerVuex.ts'
+import { inspectType } from '@/function/utilsFunction.ts'
+import { userInfo } from '@/function/handlerVuex.ts'
 
 interface CHILDREN {
   path?: string;

@@ -9,7 +9,7 @@
 // @ts-nocheck
 
 import { Component, Prop, Mixins, Inject } from 'vue-property-decorator'
-import infoMixin from '@mixin/infoMixin.ts'
+import infoMixin from '@/mixin/infoMixin.ts'
 import { ElFormInput } from './ElDragFormComponents.ts'
 
 

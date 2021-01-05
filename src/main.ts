@@ -9,7 +9,7 @@ import i18n from './i18n/index.ts'
 import router from './router/index.ts'
 import store from './store/index.ts'
 // 工程初始化
-import '@function/projectActivity.ts'
+import './function/projectActivity.ts'
 // 路由拦截初始化
 import './intercept/index.ts'
 // VUE注入初始化

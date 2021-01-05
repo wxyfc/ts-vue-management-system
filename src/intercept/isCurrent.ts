@@ -5,8 +5,8 @@
 *  通过vuex中存贮的角色进行判断该角色的路由是否符合
 * */
 
-import router from '@router/index.ts'
-import { userInfo, systemInfo } from '@function/handlerVuex.ts'
+import router from '@/router/index.ts'
+import { userInfo, systemInfo } from '@/function/handlerVuex.ts'
 import nextError from './nextError.ts'
 
 export default function () {

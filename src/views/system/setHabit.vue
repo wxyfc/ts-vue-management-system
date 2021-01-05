@@ -45,10 +45,10 @@
 // @ts-nocheck
 
 import { Component, Prop, Mixins, Inject } from 'vue-property-decorator'
-import { setLocal, getLocal } from '@function/browserActivity.ts'
-import { setTheme, setFont, setLayout, setNav } from '@function/projectActivity.ts'
+import { setLocal, getLocal } from '@/function/browserActivity.ts'
+import { setTheme, setFont, setLayout, setNav } from '@/function/projectActivity.ts'
 import { LanguageChoice } from '@/i18n/langs/index.ts'
-import infoMixin from '@mixin/infoMixin.ts'
+import infoMixin from '@/mixin/infoMixin.ts'
 
 type RELOAD = () => void;
 

@@ -32,7 +32,7 @@
 /* eslint-disable */
 // @ts-nocheck
 import { Component, Prop, Vue, Watch, PropSync, Emit, Ref } from 'vue-property-decorator'
-import { only } from '@function/utilsFunction.ts'
+import { only } from '@/function/utilsFunction.ts'
 
 @Component({
   name: 'ElePaginationTable',
