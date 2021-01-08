@@ -1,6 +1,8 @@
 <template>
   <div class="demo-main ">
     <ElFormInput></ElFormInput>
+    <ElFormSelect></ElFormSelect>
+    <ElFormDatePicker></ElFormDatePicker>
   </div>
 </template>
 
@@ -10,12 +12,14 @@
 
 import { Component, Prop, Mixins, Inject } from 'vue-property-decorator'
 import infoMixin from '@/mixin/infoMixin.ts'
-import { ElFormInput } from './ElDragFormComponents.ts'
+import { ElFormInput, ElFormSelect, ElFormDatePicker } from './ElDragFormComponents.ts'
 
 
 @Component({
   components: {
-    ElFormInput
+    ElFormInput,
+    ElFormSelect,
+    ElFormDatePicker
   },
   // computed: { // vue 原生写法也可以在此使用
   //   menuRouters: {

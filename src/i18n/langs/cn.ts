@@ -28,6 +28,11 @@ const cn = {
   menu: {
     title: {
       'async router': '异步路由',
+      'demo-drag-form': '演示拖拽表单',
+      'demo-ele-pagination-table': '演示表格',
+      'demo-3': '演示3',
+      'demo-4': '演示4',
+      'demo-5': '演示5',
       'menu router': '菜单路由',
       undefined: '未定义'
     },

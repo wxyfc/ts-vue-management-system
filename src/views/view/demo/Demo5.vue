@@ -1,6 +1,6 @@
 <template>
   <div class="demo-main ">
-    demo-main
+    demo-5
   </div>
 </template>
 
@@ -24,7 +24,7 @@ import infoMixin from '@/mixin/infoMixin.ts'
   //   }
   // }
 })
-export default class Demo extends Mixins(infoMixin) {
+export default class Demo5 extends Mixins(infoMixin) {
 
   // @Prop({
   //   type: Boolean, // 父组件传递给子组件的数据类型

@@ -55,8 +55,7 @@ export default class SystemRecursionMenu extends Mixins(infoMixin) {
 
   // 该菜单是否有子菜单
   isMenuChildrenFun (menu) {
-    let NUM = process.env.VUE_APP_TEMPLATE_SHOW_CHILDREN_NUM
-    if (menu.children && menu.children.length >= (+NUM)) {
+    if (menu.children && menu.children.length >= 1) {
       return true
     } else {
       return false
@@ -144,6 +143,20 @@ export default class SystemRecursionMenu extends Mixins(infoMixin) {
       &.is-active {
         /*background-clip: content-box*/
       }
+    }
+    i, /deep/ i {
+      width: 28px !important;
+      font-size: 20px !important;
+      margin-right: 6px !important;
+      vertical-align: middle;
+      text-align: center;
+      speak: none;
+      font-style: normal;
+      font-weight: 400;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      display: inline-block;
     }
   }
 </style>

@@ -1,21 +1,16 @@
 <template>
   <div class="el-drag-form-handler-main ">
     <el-form ref="form" :model="form" label-width="120px">
-      <div v-drag-inserted:ElFormInput@test="handlerDrag">
+      <div v-drag-inserted:ElFormInput@el-drag-form-viewer="handlerDrag">
         <ElFormInput label="测试输入框" v-model="form.input" placeholder="请输入内容"></ElFormInput>
       </div>
-      <ElFormSelect label="测试选择器" v-model="form.select" placeholder="请选择"></ElFormSelect>
-      <ElFormDatePicker label="测试日期选择器" v-model="form.date" placeholder="请选择日期" type="date"></ElFormDatePicker>
-      <ElFormInput label="测试输入框" v-model="form.input" placeholder="请输入内容"></ElFormInput>
-      <ElFormSelect label="测试选择器" v-model="form.select" placeholder="请选择"></ElFormSelect>
-      <div id="test" class="container"></div>
-      <ElFormDatePicker label="测试日期选择器" v-model="form.date" placeholder="请选择日期" type="date"></ElFormDatePicker>
-      <ElFormInput label="测试输入框" v-model="form.input" placeholder="请输入内容"></ElFormInput>
-      <ElFormSelect label="测试选择器" v-model="form.select" placeholder="请选择"></ElFormSelect>
-      <ElFormDatePicker label="测试日期选择器" v-model="form.date" placeholder="请选择日期" type="date"></ElFormDatePicker>
-      <ElFormInput label="测试输入框" v-model="form.input" placeholder="请输入内容"></ElFormInput>
-      <ElFormSelect label="测试选择器" v-model="form.select" placeholder="请选择"></ElFormSelect>
-      <ElFormDatePicker label="测试日期选择器" v-model="form.date" placeholder="请选择日期" type="date"></ElFormDatePicker>
+      <div v-drag-inserted:ElFormSelect@el-drag-form-viewer="handlerDrag">
+        <ElFormSelect label="测试选择器" v-model="form.select" placeholder="请选择"></ElFormSelect>
+      </div>
+      <div v-drag-inserted:ElFormDatePicker@el-drag-form-viewer="handlerDrag">
+        <ElFormDatePicker label="测试日期选择器" v-model="form.date" placeholder="请选择日期" type="date"></ElFormDatePicker>
+      </div>
+      <ElDragFormViewer id="el-drag-form-viewer"></ElDragFormViewer>
     </el-form>
   </div>
 </template>
@@ -27,12 +22,14 @@
 import { Component, Prop, Mixins, Inject } from 'vue-property-decorator'
 import infoMixin from '@/mixin/infoMixin.ts'
 import { ElFormInput, ElFormSelect, ElFormDatePicker } from '@/components/ElDragFormComponents.ts'
+import ElDragFormViewer from './ElDragFormViewer.vue'
 
 @Component({
   components: {
     ElFormInput,
     ElFormSelect,
-    ElFormDatePicker
+    ElFormDatePicker,
+    ElDragFormViewer
   },
   // computed: { // vue 原生写法也可以在此使用
   //   menuRouters: {

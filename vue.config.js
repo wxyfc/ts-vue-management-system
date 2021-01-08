@@ -31,6 +31,7 @@ module.exports = {
   },
   chainWebpack: config => {//修复 HMR(热更新)失效
     config.resolve.symlinks ( true )
+    config.resolve.modules.add ( resolve ( 'node_modules' ), resolve ( './src/components' ) )
     // 添加别名
     config.resolve.alias
       .set ( '@', resolve ( 'src' ) )

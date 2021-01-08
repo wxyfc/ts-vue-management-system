@@ -5,7 +5,7 @@ import { only } from '@/function/utilsFunction.ts'
 export default {
   // 指令的定义
   inserted: function (element, { value, arg }) {
-    let cEl = null, pEl = null, offsetX = null, offsetY = null, ONE_ING = false, DRAG_ID = null
+    let cEl = null, pEl = null, offsetX = null, offsetY = null, ONE_ING = false, DRAG_ID = null, CURR_TYPE = null
 
     // 处理鼠标选择过程中文字选择
     function cElOnmousedown (ne) {
@@ -56,9 +56,15 @@ export default {
         nEl.style.top = top + 'px'
         if (target) {
           if (left > targetL - nElOffW && left < targetR && top > targetT - nElOffH && top < targetB) {
-            value({ source: args[0], type, id: DRAG_ID })
+            if (CURR_TYPE != type) {
+              value({ source: args[0], type, id: DRAG_ID })
+              CURR_TYPE = type
+            }
           } else {
-            value({ source: args[0], type: '', id: DRAG_ID })
+            if (CURR_TYPE != '') {
+              value({ source: args[0], type: '', id: DRAG_ID })
+              CURR_TYPE = ''
+            }
           }
         }
       }

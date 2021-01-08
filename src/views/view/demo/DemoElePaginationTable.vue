@@ -1,6 +1,31 @@
 <template>
-  <div class="demo-main ">
-    demo-main
+  <div class="demo-ele-pagination-table ">
+    <ElePaginationTable radio index
+                        :pageSizes="[3,5,10]" :total="10"
+                        :data="[
+                        {text:'1'},
+                        {text:'1'},
+                        {text:'1'},
+                        {text:'1'}
+                        ]"
+                        @page-change="pageChangeFun"
+                        @selection-change="selectionChangeFun">
+      <el-table-column
+        prop="text"
+        label="姓名"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="text"
+        label="姓名"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="text"
+        label="姓名"
+        width="180">
+      </el-table-column>
+    </ElePaginationTable>
   </div>
 </template>
 
@@ -24,7 +49,7 @@ import infoMixin from '@/mixin/infoMixin.ts'
   //   }
   // }
 })
-export default class Demo extends Mixins(infoMixin) {
+export default class DemoElePaginationTable extends Mixins(infoMixin) {
 
   // @Prop({
   //   type: Boolean, // 父组件传递给子组件的数据类型
@@ -89,6 +114,6 @@ export default class Demo extends Mixins(infoMixin) {
 }
 </script>
 <style scoped lang="scss">
-  .demo-main {
+  .demo-ele-pagination-table {
   }
 </style>

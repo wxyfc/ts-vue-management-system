@@ -41,15 +41,14 @@ const recursion = (route: CHILDREN) => {
           path: '',
           component: () => import('@system/' + path)
         }
-        route.component = router.component
       } else {
         path = route.component
         router = {
           path: '',
           component: () => import('@view/' + path)
         }
-        route.component = router.component
       }
+      route.component = router.component
     }
     return route
   }

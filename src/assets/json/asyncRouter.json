@@ -1,69 +1,180 @@
 [
   {
-    "path" : "/async" ,
-    "name" : "/async" ,
+    "path" : "/second-handler-not-menu" ,
+    "name" : "/second-handler-not-menu" ,
     "component" : "@system/MeetMain" ,
-    "redirect" : "/async/home" ,
-    "meta" : {
-      "views" : [ "menu" ]
-    } ,
+    "redirect" : "/set-habit" ,
     "children" : [
       {
         "path" : "/async/home" ,
-        "name" : "AsyncDemo" ,
+        "name" : "/async/home" ,
         "component" : "demo/AsyncDemo" ,
         "meta" : {
           "views" : [ "menu" , "tag" ] ,
-          "role" : [ 1111 , 22222 , 3333333333 , 44444444 ] ,
+          "role" : [ 1111 ] ,
           "show" : {
             "icon" : "ts icon-setout" ,
             "title" : "async router" ,
             "loading" : true
           }
-        } ,
-        "children" : [
-          {
-            "path" : "/async/home" ,
-            "name" : "AsyncDemo" ,
-            "component" : "demo/AsyncDemo" ,
-            "meta" : {
-              "views" : [ "menu" , "tag" ] ,
-              "role" : [ 1111 , 22222 , 3333333333 , 44444444 ] ,
-              "show" : {
-                "icon" : "ts icon-setout" ,
-                "title" : "async router" ,
-                "loading" : true
-              }
-            }
-          } , {
-            "path" : "/async/home" ,
-            "name" : "AsyncDemo" ,
-            "component" : "demo/AsyncDemo" ,
-            "meta" : {
-              "views" : [ "menu" , "tag" ] ,
-              "role" : [ 1111 , 22222 , 3333333333 , 44444444 ] ,
-              "show" : {
-                "icon" : "ts icon-setout" ,
-                "title" : "async router" ,
-                "loading" : true
-              }
-            }
+        }
+      } , {
+        "path" : "/async/demo-drag-form" ,
+        "name" : "/async/demo-drag-form" ,
+        "component" : "demo/DemoDragForm" ,
+        "meta" : {
+          "views" : [ "menu" , "tag" ] ,
+          "role" : [ 1111 ] ,
+          "show" : {
+            "icon" : "ts icon-setout" ,
+            "title" : "demo-drag-form" ,
+            "loading" : true
           }
-        ]
+        }
+      } , {
+        "path" : "/async/demo-ele-pagination-table" ,
+        "name" : "/async/demo-ele-pagination-table" ,
+        "component" : "demo/DemoElePaginationTable" ,
+        "meta" : {
+          "views" : [ "menu" , "tag" ] ,
+          "role" : [ 1111 ] ,
+          "show" : {
+            "icon" : "ts icon-setout" ,
+            "title" : "demo-ele-pagination-table" ,
+            "loading" : true
+          }
+        }
+      } , {
+        "path" : "/async/demo-3" ,
+        "name" : "/async/demo-3" ,
+        "component" : "demo/Demo3" ,
+        "meta" : {
+          "views" : [ "menu" , "tag" ] ,
+          "role" : [ 1111 ] ,
+          "show" : {
+            "icon" : "ts icon-setout" ,
+            "title" : "demo-3" ,
+            "loading" : true
+          }
+        }
+      } , {
+        "path" : "/async/demo-4" ,
+        "name" : "/async/demo-4" ,
+        "component" : "demo/Demo4" ,
+        "meta" : {
+          "views" : [ "menu" , "tag" ] ,
+          "role" : [ 1111 ] ,
+          "show" : {
+            "icon" : "ts icon-setout" ,
+            "title" : "demo-4" ,
+            "loading" : true
+          }
+        }
       }
     ]
   } , {
+  "path" : "/async" ,
+  "name" : "/async" ,
+  "component" : "@system/MeetMain" ,
+  "redirect" : "/async/main" ,
+  "meta" : {
+    "views" : [ "menu" ] ,
+    "show" : {
+      "icon" : "ts icon-setout" ,
+      "title" : "async router"
+    }
+  } ,
+  "children" : [
+    {
+      "path" : "/async/main" ,
+      "name" : "/async/main" ,
+      "redirect" : "/async/home" ,
+      "meta" : {
+        "views" : [ "menu" , "tag" ] ,
+        "role" : [ 1111 ] ,
+        "show" : {
+          "icon" : "ts icon-setout" ,
+          "title" : "async router" ,
+          "loading" : true
+        }
+      } ,
+      "children" : [
+        {
+          "path" : "/async/home" ,
+          "meta" : {
+            "views" : [ "menu" , "tag" ] ,
+            "role" : [ 1111 ] ,
+            "show" : {
+              "icon" : "ts icon-setout" ,
+              "title" : "async router" ,
+              "loading" : true
+            }
+          }
+        } , {
+          "path" : "/async/demo-drag-form" ,
+          "meta" : {
+            "views" : [ "menu" , "tag" ] ,
+            "role" : [ 1111 ] ,
+            "show" : {
+              "icon" : "ts icon-setout" ,
+              "title" : "demo-drag-form" ,
+              "loading" : true
+            }
+          }
+        } , {
+          "path" : "/async/demo-ele-pagination-table" ,
+          "meta" : {
+            "views" : [ "menu" , "tag" ] ,
+            "role" : [ 1111 ] ,
+            "show" : {
+              "icon" : "ts icon-setout" ,
+              "title" : "demo-ele-pagination-table" ,
+              "loading" : true
+            }
+          }
+        }
+      ]
+    } , {
+      "path" : "/async/demo-3" ,
+      "meta" : {
+        "views" : [ "menu" , "tag" ] ,
+        "role" : [ 1111 ] ,
+        "show" : {
+          "icon" : "ts icon-setout" ,
+          "title" : "demo-3" ,
+          "loading" : true
+        }
+      }
+    } , {
+      "path" : "/async/demo-4" ,
+      "meta" : {
+        "views" : [ "menu" , "tag" ] ,
+        "role" : [ 1111 ] ,
+        "show" : {
+          "icon" : "ts icon-setout" ,
+          "title" : "demo-4" ,
+          "loading" : true
+        }
+      }
+    }
+  ]
+} , {
   "path" : "/menu" ,
   "name" : "/menu" ,
   "component" : "@system/MeetMain" ,
   "redirect" : "/menu/home" ,
   "meta" : {
-    "views" : [ "menu" ]
+    "views" : [ "menu" ] ,
+    "role" : [ 1111 ] ,
+    "show" : {
+      "icon" : "ts icon-setout" ,
+      "title" : "menu router"
+    }
   } ,
   "children" : [
     {
       "path" : "/menu/home" ,
-      "name" : "Demo" ,
+      "name" : "/menu/home" ,
       "component" : "demo/Demo" ,
       "meta" : {
         "views" : [ "menu" , "tag" ] ,
@@ -71,6 +182,19 @@
         "show" : {
           "icon" : "el-icon-menu" ,
           "title" : "menu router" ,
+          "loading" : true
+        }
+      }
+    } , {
+      "path" : "/async/demo-5" ,
+      "name" : "/async/demo-5" ,
+      "component" : "demo/Demo5" ,
+      "meta" : {
+        "views" : [ "menu" , "tag" ] ,
+        "role" : [ 1111 ] ,
+        "show" : {
+          "icon" : "ts icon-setout" ,
+          "title" : "demo-5" ,
           "loading" : true
         }
       }
