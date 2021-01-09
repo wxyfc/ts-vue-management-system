@@ -1,5 +1,6 @@
 <template>
   <div class="async-demo-main ">
+    async-demo
   </div>
 </template>
 

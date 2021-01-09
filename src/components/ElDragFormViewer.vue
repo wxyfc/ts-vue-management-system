@@ -1,8 +1,10 @@
 <template>
-  <div class="demo-main ">
-    <ElFormInput></ElFormInput>
-    <ElFormSelect></ElFormSelect>
-    <ElFormDatePicker></ElFormDatePicker>
+  <div class="el-drag-form-viewer ">
+    <el-form :model="formData" label-width="120px">
+      <ElFormInput label="测试输入框" placeholder="请输入内容" v-model="formData['a']"></ElFormInput>
+      <ElFormSelect label="测试输入框" placeholder="请输入内容" v-model="formData['b']"></ElFormSelect>
+      <ElFormDatePicker label="测试输入框" placeholder="请输入内容" v-model="formData['c']"></ElFormDatePicker>
+    </el-form>
   </div>
 </template>
 
@@ -30,7 +32,7 @@ import { ElFormInput, ElFormSelect, ElFormDatePicker } from './ElDragFormCompone
   // }
 })
 export default class ElDragFormViewer extends Mixins(infoMixin) {
-
+  formData = {}
   // @Prop({
   //   type: Boolean, // 父组件传递给子组件的数据类型
   //   required: false, // 是否必填
@@ -94,5 +96,11 @@ export default class ElDragFormViewer extends Mixins(infoMixin) {
 }
 </script>
 <style scoped lang="scss">
-
+  .el-drag-form-viewer {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    @include _border-box-shadow;
+  }
 </style>

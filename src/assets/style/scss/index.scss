@@ -1,3 +1,4 @@
+$global-highest-zindex: 9999999;
 #app {
   width: 100vw;
   height: 100vh;
@@ -44,7 +45,7 @@ img {vertical-align: top;border: none}
   background: rgba(255, 255, 255, 0.2);
 }
 
-.no-select {
+.no-select-class {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -54,11 +55,20 @@ img {vertical-align: top;border: none}
 
 .duplicator-class {
   position: fixed !important;
-  z-index: 999999 !important;
+  z-index: $global-highest-zindex !important;
   opacity: 0.8 !important;
   border: dashed 1px #DCDFE6 !important;
   box-sizing: border-box !important;
   background: rgba(0, 0, 0, 0.5);
+}
+
+.mask-class {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $global-highest-zindex;
 }
 
 @import "./_handler.scss";

@@ -90,5 +90,7 @@ export default class DemoDragForm extends Mixins(infoMixin) {
 </script>
 <style scoped lang="scss">
   .demo-drag-form {
+    width: 100%;
+    height: 100%;
   }
 </style>

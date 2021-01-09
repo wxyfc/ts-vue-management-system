@@ -5,10 +5,10 @@ import { only } from '@/function/utilsFunction.ts'
 export default {
   // 指令的定义
   inserted: function (element, { value, arg }) {
-    let cEl = null, pEl = null, offsetX = null, offsetY = null, ONE_ING = false, DRAG_ID = null, CURR_TYPE = null
+    let cEl = null, pEl = element.parentElement, offsetX = null, offsetY = null, ONE_ING = false, DRAG_ID = null, CURR_TYPE = null, E_DELAYED_HANDLER = null, E_ONE_HANDLER = false
 
     // 处理鼠标选择过程中文字选择
-    function cElOnmousedown (ne) {
+    function cElOnmouseMove (ne) {
       if (ONE_ING) {
         ONE_ING = false
       } else {
@@ -18,14 +18,19 @@ export default {
       const nEl = cEl
       const nElOffW = nEl.offsetWidth
       const nElOffH = nEl.offsetHeight
+      const args = arg.split('@')
+
       // 获取父元素信息
-      const rect = pEl.getBoundingClientRect()
+      let rect = pEl.getBoundingClientRect()
+      if (args[2]) {
+        let handlerPEl = document.getElementById(args[2])
+        rect = handlerPEl.getBoundingClientRect()
+      }
       const pElOffT = rect.top
       const pElOffB = rect.bottom
       const pElOffL = rect.left
       const pElOffR = rect.right
 
-      const args = arg.split('@')
       const target = document.getElementById(args[1])
       let targetT, targetB, targetL, targetR
       if (target) {
@@ -69,20 +74,21 @@ export default {
         }
       }
 
-      function documentOnmousemove (e) {
+      function documentOnmouseMove (e) {
         handlerPosition(e, 'move')
       }
 
-      function documentOnmouseup (e) {
+      function documentOnmouSeup (e) {
         handlerPosition(e, 'mouseup')
-        window.removeEventListener('mousemove', documentOnmousemove)
-        window.removeEventListener('mouseup', documentOnmouseup)
-        document.body.classList.remove('no-select')
-        cElOnmouseup()
+        window.removeEventListener('mousemove', documentOnmouseMove)
+        window.removeEventListener('mouseup', documentOnmouSeup)
+        document.body.classList.remove('no-select-class')
+        cElOnmouSeup()
+        elementOnmouseSeup()
       }
 
-      window.addEventListener('mousemove', documentOnmousemove)
-      window.addEventListener('mouseup', documentOnmouseup)
+      window.addEventListener('mousemove', documentOnmouseMove)
+      window.addEventListener('mouseup', documentOnmouSeup)
       // document.onmousemove = (e) => {
       // }
       // document.onmouseup = (e) => {
@@ -91,32 +97,59 @@ export default {
       // }
     }
 
-    function cElOnmouseup () {
-      cEl.removeEventListener('mousemove', cElOnmousedown)
-      cEl.removeEventListener('mouseup', cElOnmouseup)
+    function cElOnmouSeup () {
+      cEl.removeEventListener('mousemove', cElOnmouseMove)
+      cEl.removeEventListener('mouseup', cElOnmouSeup)
       if (pEl.contains(cEl)) {
         pEl.removeChild(cEl)
       }
     }
 
-    function elementOnmousedown (ne) {
+    function elementOnmouseMove (ne) {
+      if (E_DELAYED_HANDLER == null || (new Date().getTime() - E_DELAYED_HANDLER) < 100 || (new Date().getTime() - E_DELAYED_HANDLER) > 200 || E_ONE_HANDLER) {
+        return
+      } else {
+        E_ONE_HANDLER = true
+      }
       cEl = element.cloneNode(true)
       cEl.classList.add('duplicator-class')
-      pEl = element.parentElement
       pEl.insertBefore(cEl, element)
       const eRect = element.getBoundingClientRect()
       cEl.style.left = eRect.left + 'px'
       cEl.style.top = eRect.top + 'px'
-      cEl.addEventListener('mousemove', cElOnmousedown)
-      cEl.addEventListener('mouseup', cElOnmouseup)
-      document.body.classList.add('no-select')
+      cEl.addEventListener('mousemove', cElOnmouseMove)
+      cEl.addEventListener('mouseup', cElOnmouSeup)
+      document.body.classList.add('no-select-class')
       offsetX = ne.offsetX
       offsetY = ne.offsetY
       ONE_ING = true
       DRAG_ID = only('drag')
     }
 
-    element.addEventListener('mousedown', elementOnmousedown)
+    function elementOnmouseDown () {
+      E_DELAYED_HANDLER = new Date().getTime()
+      E_ONE_HANDLER = false
+    }
+
+    function elementOnmouseSeup () {
+      E_DELAYED_HANDLER = null
+      E_ONE_HANDLER = false
+    }
+
+    // function addMask () {
+    //   element.style.setProperty('position', 'relative')
+    //   const maskDiv = document.createElement('div')
+    //   maskDiv.classList.add('mask-class')
+    //   // appendChild
+    //   element.insertBefore(maskDiv, element.lastChild)
+    // }
+
+    // addMask()
+    element.style.setProperty('display', 'inline-block')
+    element.classList.add('no-select-class')
+    element.addEventListener('mousedown', elementOnmouseDown)
+    element.addEventListener('mousemove', elementOnmouseMove)
+    element.addEventListener('mouseup', elementOnmouseSeup)
 
     // cEl.onmousedown = (ne) => {
     // }
