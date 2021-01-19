@@ -9,7 +9,8 @@ const cn = {
       'dull theme': '暗沉主题',
       'large fontsize': '较大字号',
       'medium fontsize': '中等字号',
-      'small fontsize': '较小'
+      'small fontsize': '较小',
+      'drag area': '拖拽区域'
     }
   },
   tip: {
@@ -23,6 +24,9 @@ const cn = {
       'must choose': '必须选择',
       'format error': '格式不正确',
       'length error': '长度不正确'
+    },
+    experience: {
+      'long click drag': '按住拖拽下方组件并到右侧体验拖拽生成表单 ; tip:长按事件和点击事件已经解决了冲突 , 所以可能拖拽的时候需要掌握一个时机'
     }
   },
   menu: {
@@ -46,6 +50,9 @@ const cn = {
     form: {
       account: '账号',
       password: '密码',
+      input: '输入框',
+      select: '选择器',
+      datepicker: '日期选择器',
       'select language': '选择语言',
       'select theme': '选择主题',
       'select fontsize': '选择字号',
@@ -56,6 +63,9 @@ const cn = {
   placeholder: {
     form: {
       account: '请输入账号',
+      input: '请输入内容',
+      select: '请选择',
+      datepicker: '请选择日期',
       password: '请输入密码'
     }
   },

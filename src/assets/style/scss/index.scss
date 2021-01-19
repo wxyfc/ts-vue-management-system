@@ -1,4 +1,7 @@
+@import "./_handler.scss";
+
 $global-highest-zindex: 9999999;
+$global-color-grey: rgba(0, 0, 0, 0.4);
 #app {
   width: 100vw;
   height: 100vh;
@@ -57,9 +60,9 @@ img {vertical-align: top;border: none}
   position: fixed !important;
   z-index: $global-highest-zindex !important;
   opacity: 0.8 !important;
-  border: dashed 1px #DCDFE6 !important;
+  border: dashed 1px $global-color-grey !important;
   box-sizing: border-box !important;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .mask-class {
@@ -71,4 +74,9 @@ img {vertical-align: top;border: none}
   z-index: $global-highest-zindex;
 }
 
-@import "./_handler.scss";
+.tip-class {
+  @include _font-size('_tips');
+  //@include _border_color("_vice-color");
+  color: $global-color-grey;
+}
+

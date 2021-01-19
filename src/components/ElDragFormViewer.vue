@@ -1,9 +1,9 @@
 <template>
   <div class="el-drag-form-viewer ">
-    <el-form :model="formData" label-width="120px">
-      <ElFormInput label="测试输入框" placeholder="请输入内容" v-model="formData['a']"></ElFormInput>
-      <ElFormSelect label="测试输入框" placeholder="请输入内容" v-model="formData['b']"></ElFormSelect>
-      <ElFormDatePicker label="测试输入框" placeholder="请输入内容" v-model="formData['c']"></ElFormDatePicker>
+    <el-form :model="formData" label-width="120px" class="el-drag-form-viewer-class">
+      <template v-for="(item,index) in viewer">
+        <component :key="index" :is="item.component" :label="item.label" :placeholder="item.placeholder" :class="`drag-item-${item.type}`" v-model="formData[item.value]"></component>
+      </template>
     </el-form>
   </div>
 </template>
@@ -33,13 +33,12 @@ import { ElFormInput, ElFormSelect, ElFormDatePicker } from './ElDragFormCompone
 })
 export default class ElDragFormViewer extends Mixins(infoMixin) {
   formData = {}
-  // @Prop({
-  //   type: Boolean, // 父组件传递给子组件的数据类型
-  //   required: false, // 是否必填
-  //   default: () => { // 默认值， 如果传入的是 Object，则要 default: ()=>({}) 参数为函数
-  //     return false
-  //   }
-  // }) show !: number; // number 可以不指定
+  @Prop({
+    type: Array, // 父组件传递给子组件的数据类型
+    default: () => { // 默认值， 如果传入的是 Object，则要 default: ()=>({}) 参数为函数
+      return []
+    }
+  }) viewer
 
   // @Watch('show', { immediate: true, deep: true })
   // onShowChanged (v) {
@@ -102,5 +101,18 @@ export default class ElDragFormViewer extends Mixins(infoMixin) {
     box-sizing: border-box;
     padding: 10px;
     @include _border-box-shadow;
+    .el-drag-form-viewer-class {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      .drag-item-move {
+        border: dashed 1px rgba(0, 0, 0, 0.5);
+        box-sizing: border-box;
+      }
+      .drag-item-mouseup {
+        border: dashed 1px transparent;
+        box-sizing: border-box;
+      }
+    }
   }
 </style>

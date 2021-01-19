@@ -1,5 +1,5 @@
 <template>
-  <header>header========header========header=========header=header=========header===========header<span @click="test">123</span></header>
+  <header></header>
 </template>
 
 <script lang="ts">
@@ -13,10 +13,6 @@ import infoMixin from '@/mixin/infoMixin.ts'
 export default class SystemLayoutHeader extends Mixins(infoMixin) {
   created () {
     // console.log(process.env.NODE_ENV)
-  }
-
-  test () {
-
   }
 }
 </script>

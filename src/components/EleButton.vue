@@ -78,10 +78,12 @@ export default class EleButton extends Vue {
 
   .ele-button-theme {
     @include _background("_theme-color");
+    @include _color("_color");
   }
 
   .ele-button-vice {
     @include _background("_vice-color");
+    @include _color("_color");
   }
 
   .ele-button-large {

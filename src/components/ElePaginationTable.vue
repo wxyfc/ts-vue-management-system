@@ -243,7 +243,8 @@ export default class ElePaginationTable extends Vue {
       }
       /deep/ .hover-row {
         td {
-          @include _background("_head-color");
+          /*<!--@include _background("_head-color");-->*/
+          @include _background("_border-color");
           @include _color("_color");
         }
       }

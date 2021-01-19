@@ -1,18 +1,21 @@
 <template>
   <div class="el-drag-form-handler-main" id="el-drag-form-handler-main">
     <el-form label-width="100px" class="el-drag-form-class">
+      <el-form-item :label="$t('navbar.title.drag area')">
+        <p class="tip-class">{{ $t('tip.experience.long click drag') }}</p>
+      </el-form-item>
       <div v-drag-inserted:ElFormInput@el-drag-form-viewer@el-drag-form-handler-main="handlerDrag">
-        <ElFormInput label="输入框" placeholder="请输入内容"></ElFormInput>
+        <ElFormInput :label="$t('label.form.input')" :placeholder="$t('placeholder.form.input')"></ElFormInput>
       </div>
       <div v-drag-inserted:ElFormSelect@el-drag-form-viewer@el-drag-form-handler-main="handlerDrag">
-        <ElFormSelect label="选择器" placeholder="请选择"></ElFormSelect>
+        <ElFormSelect :label="$t('label.form.select')" :placeholder="$t('placeholder.form.select')"></ElFormSelect>
       </div>
       <div v-drag-inserted:ElFormDatePicker@el-drag-form-viewer@el-drag-form-handler-main="handlerDrag">
-        <ElFormDatePicker label="日期选择器" placeholder="请选择日期" type="date"></ElFormDatePicker>
+        <ElFormDatePicker :label="$t('label.form.datepicker')" :placeholder="$t('placeholder.form.datepicker')" type="date"></ElFormDatePicker>
       </div>
     </el-form>
     <div id="el-drag-form-viewer">
-      <ElDragFormViewer></ElDragFormViewer>
+      <ElDragFormViewer :viewer="viewer"></ElDragFormViewer>
     </div>
   </div>
 </template>
@@ -25,6 +28,7 @@ import { Component, Prop, Mixins, Inject } from 'vue-property-decorator'
 import infoMixin from '@/mixin/infoMixin.ts'
 import { ElFormInput, ElFormSelect, ElFormDatePicker } from '@/components/ElDragFormComponents.ts'
 import ElDragFormViewer from './ElDragFormViewer.vue'
+import { JSONCopy } from '@/function/utilsFunction.ts'
 
 @Component({
   components: {
@@ -32,14 +36,7 @@ import ElDragFormViewer from './ElDragFormViewer.vue'
     ElFormSelect,
     ElFormDatePicker,
     ElDragFormViewer
-  },
-  // computed: { // vue 原生写法也可以在此使用
-  //   menuRouters: {
-  //     get () {
-  //       return [...this.systemInfo.localRoutes, ...this.systemInfo.asyncRoutes]
-  //     }
-  //   }
-  // }
+  }
 })
 export default class ElDragFormHandler extends Mixins(infoMixin) {
   // @Prop({
@@ -55,56 +52,59 @@ export default class ElDragFormHandler extends Mixins(infoMixin) {
   // ...
   // }
 
-  // get testComputed (): Boolean {
-  //   return this.rely
-  // }
+  get viewer (): object[] {
+    let viewerList = []
+    let config = {
+      ElFormInput: {
+        label: this.$t('label.form.input'),
+        placeholder: this.$t('placeholder.form.input')
+      },
+      ElFormSelect: {
+        label: this.$t('label.form.select'),
+        placeholder: this.$t('placeholder.form.select')
+      },
+      ElFormDatePicker: {
+        label: this.$t('label.form.datepicker'),
+        placeholder: this.$t('placeholder.form.datepicker')
+      }
+    }
+    console.log(config)
+    let viewerObj = JSONCopy(this.handViewer)
+    for (let key in viewerObj) {
+      if (viewerObj.hasOwnProperty(key)) {
+        let e = viewerObj[key]
+        viewerList.push({
+          component: e.source,
+          type: e.type,
+          label: config[e.source].label,
+          placeholder: config[e.source].placeholder,
+          value: e.id
+        })
+      }
+    }
+    return viewerList
+  }
 
   // set testComputed (newRely: Boolean) {
   //   this.rely = newRely
   // }
+
+
+  handViewer = {}
+
   handlerDrag (v) {
+    if (v.type) {
+      this.$set(this.handViewer, v.id, v)
+    } else {
+      this.$delete(this.handViewer, v.id)
+    }
     console.log(v)
-  }
-
-  beforeCreate () {
-    //创建前
-  }
-
-  created () {
-    //创建
-  }
-
-  beforeMount () {
-    //渲染前
   }
 
   mounted () {
     //渲染
   }
 
-  activated () {
-    //可见
-  }
-
-  deactivated () {
-    //隐藏
-  }
-
-  beforeUpdate () {
-    //更新前
-  }
-
-  updated () {
-    //更新
-  }
-
-  beforeDestroy () {
-    //销毁前
-  }
-
-  destroyed () {
-    //销毁
-  }
 }
 </script>
 <style scoped lang="scss">
@@ -112,18 +112,22 @@ export default class ElDragFormHandler extends Mixins(infoMixin) {
     width: 100%;
     height: 100%;
     .el-drag-form-class {
+      vertical-align: top;
       display: inline-block;
       width: 330px;
       margin-right: 20px;
       padding: 10px;
       box-sizing: border-box;
       height: 100%;
+      margin-bottom: 20px;
       @include _border-box-shadow;
     }
     #el-drag-form-viewer {
       display: inline-block;
       width: calc(100% - 350px);
       height: 100%;
+      min-width: 350px;
+      margin-bottom: 20px;
     }
     /deep/ .el-input {
       width: 200px;
